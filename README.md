@@ -1,4 +1,4 @@
-# USyd NCI Gadi guide
+# USyd Pawsey Setonix guide
 
 ## Contributing to this repository
 
@@ -19,7 +19,7 @@ You can choose to work either locally or on your Nimbus VM to make changes to th
 Grab a copy of the repository by cloning it to your local machine or Nimbus VM:
 
 ```bash
-git clone https://github.com/Sydney-Informatics-Hub/usyd-gadi-onboarding-guide.git
+git clone https://github.com/Sydney-Informatics-Hub/usyd-pawsey-onboarding-guide.git
 ```
 
 1. Edit `index.qmd` to change the main landing page. This is a markdown file.
