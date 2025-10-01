@@ -1,0 +1,39 @@
+---
+title: "**Setonix overview**"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+This section will point you to the right sections of the Pawsey documentation and user guides to get you started on the Setonix HPC system.
+
+## Resources
+
+
+- Pawsey [Using Supercomputers](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929390/Using+Supercomputers) general HPC guide
+    - This is a beginner friendly overview of using an HPC, including the basics of connection, text editing, job submission, file management, and more
+- Pawsey [Setonix user guide](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925434/Setonix+User+Guide)
+    - Comprehensive technical information about working on Setonix
+- [Pawsey user support](https://pawsey.org.au/support/)landing page
+    - Quick links to documentation, help desk, and the Origin project management portal
+
+## Setonix technical summary
+
+**Pawsey Setonix** is the most powerful research computer in the Southern Hemisphere, and the world’s fourth greenest supercomputer. It is a hybrid system of central processing units (CPU) and graphics processing units (GPU), and now a world-leading [quantum computing facility](https://pawsey.org.au/quantum-technology/). 
+
+| Component         | Details                                                                                                    |
+|-------------------|------------------------------------------------------------------------------------------------------------|
+| CPU               | 1592 Dual 2.45GHz AMD EPYC 7763 “Milan” 64-Core CPU Nodes with 256 GB RAM                                |
+|                   | 8 Dual 2.45GHz AMD EPYC 7763 “Milan”   64-Core CPU Nodes with 1 TB RAM                                     |
+| GPU               | 154 Single AMD EPYC 7A53 “Trento” 64-Core GPU Nodes with eight AMD Instinct   MI250X GPUs and 256 GB RAM |
+|                   | 38 Single AMD EPYC 7A53 “Trento”   64-Core GPU Nodes with eight AMD Instinct MI250X GPUs and 512 GB RAM    |
+| Peak performance   | Combined (CPU + GPU) 42 PetaFLOPS (42 quadrillion floating-point operations per second)               |
+| Quantum computing | World’s first room-temperature diamond-based quantum computer located on-site                            |
+| Visualisation     | 31 visualization nodes                                                                                   |
+| Networking        | Connected by HPE’s Slingshot interconnect (200Gb/sec)                                                    |
+| Filesystems       | 14.4 PB Lustre high-performance parallel filesystem for data processing (3 SSD, 11 HDD)                |
+
+## Conditions of use
+
