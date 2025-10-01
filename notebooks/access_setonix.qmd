@@ -1,0 +1,15 @@
+---
+title: "**Accessing Pawsey**"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+University of Sydney researchers are entitled to fully-subsidised access to Pawsey facilities through the Sydney Scheme. Access to Pawsey systems will be an ongoing feature of the [Sydney Research Cloud](https://intranet.sydney.edu.au/research-support/managing-research/facilities-and-tools/sydney-research-cloud.html) initiative. 
+
+:::{.callout-note}
+## Attention researchers
+Please see the [University of Sydney Research Computing documentation](https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3448733944/NCI-Sydney+Scheme) for details on how to access Pawsey Setonix.
+:::
