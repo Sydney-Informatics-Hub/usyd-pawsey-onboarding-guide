@@ -24,14 +24,14 @@ website:
           href: notebooks/infrastructure_expectations.html
         - text: "Conditions of use"
           href: notebooks/conditions_of_use.html
-        - text: "Gaining access to Setonix"
+        - text: "Accessing Setonix"
           href: notebooks/access_setonix.html
       - section: "Working on Setonix"
         contents: 
         - text: "Logging on"
           href: notebooks/login.html        
         - text: "Setonix filesystems"
-          href: notebooks/filesystems.html
+          href: notebooks/setonix_filesystems.html
         - text: "Data transfer"
           href: notebooks/data_transfer.html
         - text: "Software"
@@ -52,7 +52,7 @@ website:
           href: notebooks/benchmark.html
         - text: "Job arrays"
           href: notebooks/arrays.html
-        - section: "Support and resources"
+      - section: "Support and resources"
         contents: 
         - text: "FAQs"
           href: notebooks/faq.html        

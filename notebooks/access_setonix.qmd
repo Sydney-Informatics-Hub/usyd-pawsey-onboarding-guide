@@ -1,5 +1,5 @@
 ---
-title: "**Accessing Pawsey**"
+title: "**Accessing Setonix**"
 output:
   html_document:
     toc: false
@@ -13,3 +13,5 @@ University of Sydney researchers are entitled to fully-subsidised access to Paws
 ## Attention researchers
 Please see the [University of Sydney Research Computing documentation](https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3448733944/NCI-Sydney+Scheme) for details on how to access Pawsey Setonix.
 :::
+
+For details about logging on to Setonix once your Pawsey project is set up, please see [Logging on](#notebooks/login.qmd).

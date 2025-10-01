@@ -29,6 +29,6 @@ HPC provides a reliable and efficient means of analysing data of all shapes and 
 
 Under the [Sydney Research Cloud](https://intranet.sydney.edu.au/research-support/managing-research/facilities-and-tools/sydney-research-cloud.html), researchers at The University of Sydney have in-kind access to both Tier-1 supercomputers in Australia: Pawsey's [Setonix](https://pawsey.org.au/systems/setonix/) and NCI's [Gadi](https://nci.org.au/our-systems/hpc-systems). 
 
-For general information on accessing these services, visit [National HPCs](https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3710255449/National+HPCs. 
+For general information on accessing these services, visit [National HPCs](https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3710255449/National+HPCs). 
 
 A guide to onboarding Pawsey tailored for University of Sydney researchers can be found within these pages. A similar [guide for onboarding Gadi](https://sydney-informatics-hub.github.io/usyd-gadi-onboarding-guide/) is also available.  
