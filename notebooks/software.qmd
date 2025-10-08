@@ -1,0 +1,7 @@
+
+
+https://pawsey.atlassian.net/wiki/spaces/US/pages/51929054/Setonix+Software+Environment
+
+Users can install tools into /software/projects/<pawsey project ID>
+
+There is a shared writable space at /software/projects/<pawsey project ID> for group-wide tools as well as per-user folders for personal use tools. 
