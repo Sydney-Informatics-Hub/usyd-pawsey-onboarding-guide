@@ -13,7 +13,53 @@ website:
     search: true
     contents:
       - href: index.qmd
-        text: Home
+        text: Pawsey for USyd researchers
+      - section: "Introduction"
+        contents: 
+        - text: "Introduction to HPC"
+          href: notebooks/intro_to_hpc.html
+        - text: "Introduction to Setonix"
+          href: notebooks/intro_to_setonix.html
+        - text: "Infrastructure expectations"
+          href: notebooks/infrastructure_expectations.html
+        - text: "Conditions of use"
+          href: notebooks/conditions_of_use.html
+        - text: "Accessing Setonix"
+          href: notebooks/access_setonix.html
+      - section: "Working on Setonix"
+        contents: 
+        - text: "Logging on"
+          href: notebooks/login.html        
+        - text: "Setonix filesystems"
+          href: notebooks/setonix_filesystems.html
+        - text: "Data transfer"
+          href: notebooks/data_transfer.html
+        - text: "Software"
+          href: notebooks/software.html
+        - text: "Accounting"
+          href: notebooks/accounting.html
+      - section: "Running a job"
+        contents: 
+        - text: "Job scripts and submission"
+          href: notebooks/job_scripts.html        
+        - text: "Job priority"
+          href: notebooks/job_priority.html
+        - text: "Job monitoring"
+          href: notebooks/job_monitoring.html
+        - text: "Working within walltime"
+          href: notebooks/walltime.html
+        - text: "Benchmarking and efficiency"
+          href: notebooks/benchmark.html
+        - text: "Job arrays"
+          href: notebooks/arrays.html
+      - section: "Support and resources"
+        contents: 
+        - text: "FAQs"
+          href: notebooks/faq.html        
+        - text: "Training"
+          href: notebooks/training.html
+        - text: "Where to get help"
+          href: notebooks/help.html
 
   cookie-consent: 
     type: express
