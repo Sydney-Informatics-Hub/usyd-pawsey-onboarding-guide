@@ -23,4 +23,6 @@ Pawsey Setonix is the most powerful research computer in the Southern Hemisphere
 | Networking        | Connected by HPE’s Slingshot interconnect (200Gb/sec)                                                    |
 | Filesystems       | 14.4 PB Lustre high-performance parallel filesystem for data processing (3 SSD, 11 HDD)                |
 
-
+:::{.callout-tip}
+More details on the Setonix hardware, including helpful visualisations of the nodes and chips, can be found on Pawsey's [Hardware Architecture](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929028/Setonix+General+Information#Hardware-architecture) page.  
+:::
