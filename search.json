@@ -35,7 +35,7 @@
   {
     "objectID": "notebooks/accounting.html",
     "href": "notebooks/accounting.html",
-    "title": "**Accounting*",
+    "title": "Accounting",
     "section": "",
     "text": "TBC\n\nQoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service\nService unit calculator: https://pawseysc.github.io/su-calculator/",
     "crumbs": [
@@ -46,7 +46,7 @@
   {
     "objectID": "notebooks/arrays.html",
     "href": "notebooks/arrays.html",
-    "title": "**Job arrays*",
+    "title": "Job arrays",
     "section": "",
     "text": "TBC\nUse job arrays for embarassingly parallel tasks.\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925946/Example+Workflows#ExampleWorkflows-Jobarrays",
     "crumbs": [
@@ -57,7 +57,7 @@
   {
     "objectID": "notebooks/data_transfer.html",
     "href": "notebooks/data_transfer.html",
-    "title": "**Data transfer*",
+    "title": "Data transfer",
     "section": "",
     "text": "TBC\n\nAcacia user guide",
     "crumbs": [
@@ -68,7 +68,7 @@
   {
     "objectID": "notebooks/infrastructure_expectations.html",
     "href": "notebooks/infrastructure_expectations.html",
-    "title": "**What Pawsey expects of its users*",
+    "title": "What Pawsey expects of its users",
     "section": "",
     "text": "Using HPC efficiently is important for fair access among users and minimising carbon footprint. Despite impressive green credentials, Setonix, like all supercomputers, has a large carbon footprint. By benchmarking and optimising your code and workflows, you can save time as well as minimise environmental impacts of your research.\nAs a national shared resource, there are potentially hundreds of other users accessing the system at the same time as you. For Setonix to remain efficient and usable, everyone needs to be courteous and use the system with consideration for others. This includes running efficient code that does not waste resources that could be utilised by others, as well as other general tips outlined below.",
     "crumbs": [
@@ -79,7 +79,7 @@
   {
     "objectID": "notebooks/infrastructure_expectations.html#efficient-use",
     "href": "notebooks/infrastructure_expectations.html#efficient-use",
-    "title": "**What Pawsey expects of its users*",
+    "title": "What Pawsey expects of its users",
     "section": "",
     "text": "Using HPC efficiently is important for fair access among users and minimising carbon footprint. Despite impressive green credentials, Setonix, like all supercomputers, has a large carbon footprint. By benchmarking and optimising your code and workflows, you can save time as well as minimise environmental impacts of your research.\nAs a national shared resource, there are potentially hundreds of other users accessing the system at the same time as you. For Setonix to remain efficient and usable, everyone needs to be courteous and use the system with consideration for others. This includes running efficient code that does not waste resources that could be utilised by others, as well as other general tips outlined below.",
     "crumbs": [
@@ -90,7 +90,7 @@
   {
     "objectID": "notebooks/infrastructure_expectations.html#use-job-queues-appropriately",
     "href": "notebooks/infrastructure_expectations.html#use-job-queues-appropriately",
-    "title": "**What Pawsey expects of its users*",
+    "title": "What Pawsey expects of its users",
     "section": "Use job queues appropriately",
     "text": "Use job queues appropriately\nSetonix runs the SLURM job scheduler that manages the allocation of resources to users. When you submit a job, it is placed in a queue and will run when the requested resources become available. Unlike on Artemis where your job is allocated to a suitable queue based on your resource request, Setonix users need to specify which “partition” (SLURM terminology for job queue) their job is to run on. It is important for you to pick a job partition/queue that is appropriate for your job.\n\nSetonix partitions\nSLURM user documentation",
     "crumbs": [
@@ -101,7 +101,7 @@
   {
     "objectID": "notebooks/infrastructure_expectations.html#responsibly-manage-your-data",
     "href": "notebooks/infrastructure_expectations.html#responsibly-manage-your-data",
-    "title": "**What Pawsey expects of its users*",
+    "title": "What Pawsey expects of its users",
     "section": "Responsibly manage your data",
     "text": "Responsibly manage your data\n/scratch is not a safe space for long term data storage. Files not used for 21 days will be permanently deleted in line with Pawsey’s purge policy. The strict scratch purge policy is in place to allow a generous upper limit of 1 PB scratch usage per project. This is in contrast to NCI where the purge period is longer but the scratch pool is limited to the project’s allocated amount.\nPawsey recommends making active use of the 1 TB Acacia cloud object storage provided to Pawsey projects. Acacia is not subjected to purge and commands to move input and output data between Acacia and Setonix /scratch can be included within your job scripts. How to use Acacia in your workflow will be covered in more detail in Setonix filesystems.\nNeither Acacia or /scratch are backed up, so regular backups of all input data, job scripts, and important output files to RDS. Please follow the data transfer between Pawsey and RDS guide for the best ways to do this.\n\nSetonix filesystems\nSetonix data management\nAcacia user guide\nTransferring data between RDS and Pawsey",
     "crumbs": [
@@ -112,7 +112,7 @@
   {
     "objectID": "notebooks/infrastructure_expectations.html#dont-request-more-resources-than-you-need",
     "href": "notebooks/infrastructure_expectations.html#dont-request-more-resources-than-you-need",
-    "title": "**What Pawsey expects of its users*",
+    "title": "What Pawsey expects of its users",
     "section": "Don’t request more resources than you need",
     "text": "Don’t request more resources than you need\nDon’t request resources that you won’t need, it will only result in your job and other users jobs being held up, and you wasting your service unit allocation. It can be hard to know what resources a tool needs, and this can vary on different hardware. We suggest the following:\n\nStep 1: Consult the software documentation\n\nOften, developers will outline the minimum amount of RAM (memory) and whether a tool is multi-threaded (e.g. use &gt;1 CPU or GPU)\n\nStep 2: Run a test job using our Pawsey benchmarking tool\n\nThis will give you a good idea of how much resources you need to request for your main job\n\nStep 3: Ask for help\nBenchmarking tasks on Setonix",
     "crumbs": [
@@ -123,7 +123,7 @@
   {
     "objectID": "notebooks/infrastructure_expectations.html#keep-track-of-your-resource-usage",
     "href": "notebooks/infrastructure_expectations.html#keep-track-of-your-resource-usage",
-    "title": "**What Pawsey expects of its users*",
+    "title": "What Pawsey expects of its users",
     "section": "Keep track of your resource usage",
     "text": "Keep track of your resource usage\nPawsey projects are allocated a finite amount of “service units” (akin to CPU hours) from the University of Sydney HPC scheme. Each job uses service units, and in order to continue submitting jobs, you must have sufficient units available. Pawsey does allow jobs to run on Setonix after a project has consumed its allocation, however the job is assigned a lower priority in the queue.\nIt is also important to monitor your use of physical disk space and inodes on /scratch as well as /home. Please see the accounting section for more details.",
     "crumbs": [
@@ -134,7 +134,7 @@
   {
     "objectID": "notebooks/infrastructure_expectations.html#dont-misuse-the-login-nodes",
     "href": "notebooks/infrastructure_expectations.html#dont-misuse-the-login-nodes",
-    "title": "**What Pawsey expects of its users*",
+    "title": "What Pawsey expects of its users",
     "section": "Don’t misuse the login nodes",
     "text": "Don’t misuse the login nodes\nLogin nodes are for logging in to the system, basic file and directory navigation commands, and submitting jobs to the SLURM scheduler. Login nodes are not for large data transfers, compute tasks, excessive job status queries, or submitting jobs via high-iteration for loops. Doing so will overload these nodes, causing a slow-down and frustration for all users. Pawsey monitors login node traffic and inappropriate use will be targeted. Please see the sections on data transfer and job arrays for recommended strategies for these tasks.",
     "crumbs": [
@@ -145,7 +145,7 @@
   {
     "objectID": "notebooks/login.html",
     "href": "notebooks/login.html",
-    "title": "**Logging in to Setonix*",
+    "title": "Logging in to Setonix",
     "section": "",
     "text": "TBC\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix",
     "crumbs": [
@@ -178,7 +178,7 @@
   {
     "objectID": "notebooks/job_monitoring.html",
     "href": "notebooks/job_monitoring.html",
-    "title": "**Job monitoring*",
+    "title": "Job monitoring",
     "section": "",
     "text": "TBC\n\nhttp://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm#HowtoMigratefromPBSProtoSlurm-Displayingjobstatus:thesqueuecommand",
     "crumbs": [
@@ -234,7 +234,7 @@
   {
     "objectID": "notebooks/job_scripts.html",
     "href": "notebooks/job_scripts.html",
-    "title": "**Job scripts and submission*",
+    "title": "Job scripts and submission",
     "section": "",
     "text": "TBC",
     "crumbs": [
@@ -245,7 +245,7 @@
   {
     "objectID": "notebooks/job_scripts.html#partitions",
     "href": "notebooks/job_scripts.html#partitions",
-    "title": "**Job scripts and submission*",
+    "title": "Job scripts and submission",
     "section": "Partitions",
     "text": "Partitions\n\npartitions: https://pawsey.atlassian.net/wiki/spaces/US/pages/51925964/Job+Scheduling#JobScheduling-Slurmpartitions\ndev partitions: https://pawsey.atlassian.net/wiki/spaces/US/pages/51931376/Job+Scheduling+and+Partitions+Use+Policies",
     "crumbs": [
@@ -256,7 +256,7 @@
   {
     "objectID": "notebooks/job_scripts.html#scripts",
     "href": "notebooks/job_scripts.html#scripts",
-    "title": "**Job scripts and submission*",
+    "title": "Job scripts and submission",
     "section": "Scripts",
     "text": "Scripts\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51927426/Example+Slurm+Batch+Scripts+for+Setonix+on+CPU+Compute+Nodes\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51929056/Example+Slurm+Batch+Scripts+for+Setonix+on+GPU+Compute+Nodes",
     "crumbs": [
@@ -267,7 +267,7 @@
   {
     "objectID": "notebooks/job_scripts.html#submittinng",
     "href": "notebooks/job_scripts.html#submittinng",
-    "title": "**Job scripts and submission*",
+    "title": "Job scripts and submission",
     "section": "Submittinng",
     "text": "Submittinng\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925964/Job+Scheduling#JobScheduling-SubmittingajobtoSlurm",
     "crumbs": [
@@ -289,7 +289,7 @@
   {
     "objectID": "notebooks/software.html",
     "href": "notebooks/software.html",
-    "title": "**Software*",
+    "title": "Software",
     "section": "",
     "text": "TBC\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51929054/Setonix+Software+Environment\n\nUsers can install tools into /software/projects/\nThere is a shared writable space at /software/projects/ for group-wide tools as well as per-user folders for personal use tools.",
     "crumbs": [
@@ -300,7 +300,7 @@
   {
     "objectID": "notebooks/training.html",
     "href": "notebooks/training.html",
-    "title": "**Training*",
+    "title": "Training",
     "section": "",
     "text": "TBC",
     "crumbs": [
@@ -311,7 +311,7 @@
   {
     "objectID": "notebooks/training.html#live-introductory-event",
     "href": "notebooks/training.html#live-introductory-event",
-    "title": "**Training*",
+    "title": "Training",
     "section": "Live introductory event",
     "text": "Live introductory event\n31 st October 2025 2-3pm: Sydney Research Cloud: Pawsey Information Session (online)\nThe session will cover:\n\nAn overview of the research computing landscape at The University of Sydney, including the new initiative offering compute hours on Setonix\nAn introduction to Pawsey Supercomputing Research Centre and its national services\nHow to become an early adopter via our Expression of Interest (EOI) process",
     "crumbs": [
@@ -322,7 +322,7 @@
   {
     "objectID": "notebooks/training.html#pawsey-training-and-resources",
     "href": "notebooks/training.html#pawsey-training-and-resources",
-    "title": "**Training*",
+    "title": "Training",
     "section": "Pawsey training and resources",
     "text": "Pawsey training and resources\n\nPawsey training]\nPawsey events\nPawsey recorded training\nIntroduction to Unix",
     "crumbs": [
@@ -333,7 +333,7 @@
   {
     "objectID": "notebooks/job_priority.html",
     "href": "notebooks/job_priority.html",
-    "title": "**Job priority*",
+    "title": "Job priority",
     "section": "",
     "text": "TBC\n\nQoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service",
     "crumbs": [
@@ -364,9 +364,20 @@
     ]
   },
   {
+    "objectID": "notebooks/help.html",
+    "href": "notebooks/help.html",
+    "title": "Where to get help",
+    "section": "",
+    "text": "TBC\n\nPawsey support landing page\nSydney Scheme for national HPC access\nSydney Informatics Hub support request\nSydney Informatics Hub weekly research compute drop-ins, Wednesdays at 12 pm, zoom",
+    "crumbs": [
+      "Support and resources",
+      "Where to get help"
+    ]
+  },
+  {
     "objectID": "notebooks/walltime.html",
     "href": "notebooks/walltime.html",
-    "title": "**Working within walltime*",
+    "title": "Working within walltime",
     "section": "",
     "text": "TBC",
     "crumbs": [
