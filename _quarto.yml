@@ -13,11 +13,11 @@ website:
     search: true
     contents:
       - href: index.qmd
-        text: Pawsey for USyd researchers
+        text: HPC for USyd researchers
       - section: "Introduction"
         contents: 
-        - text: "Introduction to HPC"
-          href: notebooks/intro_to_hpc.html
+        - text: "Introduction to Pawsey"
+          href: notebooks/intro_to_pawsey.html
         - text: "Introduction to Setonix"
           href: notebooks/intro_to_setonix.html
         - text: "Infrastructure expectations"

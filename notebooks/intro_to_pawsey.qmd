@@ -1,0 +1,28 @@
+---
+title: "**Introduction to Pawsey**"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+
+The [Pawsey Supercomputing Research Centre (Pawsey)](https://pawsey.org.au/) in Perth, Western Australia provides [high performance computing (HPC)](https://pawsey.org.au/systems/setonix/), [quantum computing](https://pawsey.org.au/quantum-computing-made-easy-pawseys-setonix-q-breaks-new-ground/), and [cutting edge visualisation platforms](https://pawsey.org.au/visualisation/) to Australian researchers. 
+
+
+## Pawsey pages to bookmark 
+
+- Pawsey [Using Supercomputers](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929390/Using+Supercomputers) general HPC guide
+    - This is a beginner friendly overview of using an HPC, including the basics of connection, text editing, job submission, file management, and more
+- Pawsey [Setonix user guide](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925434/Setonix+User+Guide)
+    - Comprehensive technical information about working on Setonix
+- Pawsey [User support](https://pawsey.org.au/support/) landing page
+    - Quick links to documentation, help desk, and the Origin project management portal
+
+
+
+
+
+
+
