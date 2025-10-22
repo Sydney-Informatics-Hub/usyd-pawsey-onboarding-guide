@@ -1,5 +1,5 @@
 ---
-title: "**Job scripts and submission*"
+title: "Job scripts and submission"
 output:
   html_document:
     toc: false
@@ -20,6 +20,7 @@ from: markdown+emoji
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm 
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51927426/Example+Slurm+Batch+Scripts+for+Setonix+on+CPU+Compute+Nodes 
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929056/Example+Slurm+Batch+Scripts+for+Setonix+on+GPU+Compute+Nodes 
+
 
 ## Submittinng 
 

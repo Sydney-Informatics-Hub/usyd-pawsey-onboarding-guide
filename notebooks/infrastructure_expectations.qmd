@@ -1,5 +1,5 @@
 ---
-title: "**What Pawsey expects of its users*"
+title: "What Pawsey expects of its users"
 output:
   html_document:
     toc: false

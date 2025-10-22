@@ -1,0 +1,16 @@
+---
+title: "Where to get help"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+
+**TBC**
+
+- [Pawsey support landing page](https://pawsey.org.au/support/)
+- [Sydney Scheme for national HPC access](mailto:nci-sydney.scheme@sydney.edu.au)
+- [Sydney Informatics Hub support request](https://www.sydney.edu.au/research/facilities/sydney-informatics-hub/project-support.html)
+- Sydney Informatics Hub weekly research compute drop-ins, Wednesdays at 12 pm, [zoom](https://uni-sydney.zoom.us/j/85100208525?from=addon)

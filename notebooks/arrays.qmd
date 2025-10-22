@@ -1,5 +1,5 @@
 ---
-title: "**Job arrays*"
+title: "Job arrays"
 output:
   html_document:
     toc: false
@@ -12,3 +12,5 @@ from: markdown+emoji
 Use job arrays for embarassingly parallel tasks. 
  
  - https://pawsey.atlassian.net/wiki/spaces/US/pages/51925946/Example+Workflows#ExampleWorkflows-Jobarrays
+
+

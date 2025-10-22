@@ -1,5 +1,5 @@
 ---
-title: "**Optimising and benchmarking your job**"
+title: "Optimising and benchmarking your job"
 output:
   html_document:
     toc: false

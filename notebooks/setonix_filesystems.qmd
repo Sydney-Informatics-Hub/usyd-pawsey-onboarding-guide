@@ -1,5 +1,5 @@
 ---
-title: "**Filesystems and data management**"
+title: "Filesystems and data management"
 output:
   html_document:
     toc: false

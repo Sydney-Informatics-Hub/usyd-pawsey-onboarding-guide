@@ -1,5 +1,5 @@
 ---
-title: "**Introduction to Pawsey**"
+title: "Introduction to Pawsey"
 output:
   html_document:
     toc: false

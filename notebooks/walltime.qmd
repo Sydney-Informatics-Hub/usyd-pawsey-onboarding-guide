@@ -1,5 +1,5 @@
 ---
-title: "**Working within walltime*"
+title: "Working within walltime"
 output:
   html_document:
     toc: false

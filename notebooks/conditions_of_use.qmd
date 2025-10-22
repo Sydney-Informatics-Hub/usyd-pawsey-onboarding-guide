@@ -1,5 +1,5 @@
 ---
-title: "**Conditions of use**"
+title: "Conditions of use"
 output:
   html_document:
     toc: false

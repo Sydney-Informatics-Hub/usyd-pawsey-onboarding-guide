@@ -1,5 +1,5 @@
 ---
-title: "**Data transfer*"
+title: "Data transfer"
 output:
   html_document:
     toc: false

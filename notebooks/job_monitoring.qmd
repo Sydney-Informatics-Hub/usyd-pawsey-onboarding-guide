@@ -1,5 +1,5 @@
 ---
-title: "**Job monitoring*"
+title: "Job monitoring"
 output:
   html_document:
     toc: false

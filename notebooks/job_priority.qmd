@@ -1,5 +1,5 @@
 ---
-title: "**Job priority*"
+title: "Job priority"
 output:
   html_document:
     toc: false
