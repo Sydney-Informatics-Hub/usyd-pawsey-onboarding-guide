@@ -1,0 +1,23 @@
+---
+title: "**Conditions of use**"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+## Pawsey conditions of use
+
+
+[Conditions of use and policies](https://pawsey.atlassian.net/wiki/spaces/US/pages/51926766/Conditions+of+Use.)
+
+All users of Pawsey agree that they will keep themselves informed of, and comply with, all relevant state and federal legislation as well as the policies and rules of the Pawsey Supercomputing Research Centre.
+
+All users must acknowledge and understand that a breach of these will result in not only a loss of access to Pawsey resources but the user may be subject to Federal criminal prosecution resulting in fines and/or gaol legislated under the Acts listed on the conditions of use and policies page.
+
+## Acknowledgements
+
+All publications and presentation of research results generated on Pawsey must [acknowledge](https://pawsey.atlassian.net/wiki/spaces/US/pages/51926766/Conditions+of+Use#ConditionsofUse-Publications) the Pawsey Supercomputing Research Centre. If access to Pawsey is through the The University of Sydney scheme for national HPC access, the following acknowledgement should be used:
+
+*"This research was undertaken with the assistance of resources from the Pawsey Supercomputing Research Centre, an NCRIS enabled capability supported by the Australian Government and the Sydney Informatics Hub, a Core Research Facility of the University of Sydney."*
