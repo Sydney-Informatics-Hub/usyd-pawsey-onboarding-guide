@@ -1,0 +1,14 @@
+---
+title: "**Accounting*"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+
+**TBC**
+
+- QoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service 
+- Service unit calculator: https://pawseysc.github.io/su-calculator/ 

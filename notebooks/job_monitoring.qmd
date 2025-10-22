@@ -1,0 +1,14 @@
+---
+title: "**Job monitoring*"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+
+**TBC**
+
+
+- http://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm#HowtoMigratefromPBSProtoSlurm-Displayingjobstatus:thesqueuecommand 

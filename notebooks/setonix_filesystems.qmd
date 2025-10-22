@@ -1,0 +1,19 @@
+---
+title: "**Filesystems and data management**"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+
+
+**TBC**
+
+
+- [Setonix filesystems](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929028/Setonix+General+Information#Filesystems-and-data-management)
+- [Setonix data management](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925854/File+Management)
+- [Acacia user guide](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide) 
+- munlink https://pawsey.atlassian.net/wiki/spaces/US/pages/51925900/Deleting+Large+Numbers+of+Files+on+Lustre+Filesystems 
+- data storage options - https://pawsey.atlassian.net/wiki/spaces/US/pages/51924796/Data+Services 

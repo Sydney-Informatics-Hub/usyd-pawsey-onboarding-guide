@@ -1,0 +1,14 @@
+---
+title: "**Job arrays*"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+**TBC**
+
+Use job arrays for embarassingly parallel tasks. 
+ 
+ - https://pawsey.atlassian.net/wiki/spaces/US/pages/51925946/Example+Workflows#ExampleWorkflows-Jobarrays

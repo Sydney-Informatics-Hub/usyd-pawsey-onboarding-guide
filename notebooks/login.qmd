@@ -1,0 +1,13 @@
+---
+title: "**Logging in to Setonix*"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+
+**TBC**
+
+- https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix

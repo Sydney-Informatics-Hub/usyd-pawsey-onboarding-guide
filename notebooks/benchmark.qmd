@@ -1,0 +1,14 @@
+---
+title: "**Optimising and benchmarking your job**"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+**TBC**
+
+- also TBC: https://github.com/Sydney-Informatics-Hub/Pawsey-benchmarking
+
+- https://pawsey.atlassian.net/wiki/spaces/US/pages/51929062/Profiling+and+Optimising+on+Setonix 

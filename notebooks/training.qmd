@@ -1,0 +1,30 @@
+---
+title: "**Training*"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+**TBC**
+
+
+## Live introductory event
+
+31 st October 2025 2-3pm: **Sydney Research Cloud: Pawsey Information Session** (online) 
+ 
+The session will cover: 
+
+- An overview of the research computing landscape at The University of Sydney, including the new initiative offering compute hours on Setonix 
+- An introduction to Pawsey Supercomputing Research Centre and its national services 
+- How to become an early adopter via our Expression of Interest (EOI) process 
+
+
+## Pawsey training and resources
+
+- [Pawsey training](https://pawsey.org.au/supercomputing/training)]
+- [Pawsey events](https://pawsey.org.au/events/)
+- [Pawsey recorded training](https://www.youtube.com/c/PawseySupercomputingCentre)
+- [Introduction to Unix](https://pawsey.atlassian.net/wiki/spaces/US/pages/51915656/Introduction+to+Unix)
+
