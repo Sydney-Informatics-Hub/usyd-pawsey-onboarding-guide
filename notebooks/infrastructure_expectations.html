@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>infrastructure_expectations – USyd Pawsey Setonix User Guide</title>
+<title>**What Pawsey expects of its users* – USyd Pawsey Setonix User Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,7 +129,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/intro_to_hpc.html">Introduction</a></li><li class="breadcrumb-item"><a href="../notebooks/infrastructure_expectations.html">Infrastructure expectations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/intro_to_pawsey.html">Introduction</a></li><li class="breadcrumb-item"><a href="../notebooks/infrastructure_expectations.html">Infrastructure expectations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,7 +156,7 @@ cookieconsent.run({
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pawsey for USyd researchers</span></a>
+ <span class="menu-text">HPC for USyd researchers</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -170,8 +170,8 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/intro_to_hpc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to HPC</span></a>
+  <a href="../notebooks/intro_to_pawsey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Pawsey</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -322,17 +322,94 @@ cookieconsent.run({
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#efficient-use" id="toc-efficient-use" class="nav-link active" data-scroll-target="#efficient-use">Efficient use</a></li>
+  <li><a href="#use-job-queues-appropriately" id="toc-use-job-queues-appropriately" class="nav-link" data-scroll-target="#use-job-queues-appropriately">Use job queues appropriately</a></li>
+  <li><a href="#responsibly-manage-your-data" id="toc-responsibly-manage-your-data" class="nav-link" data-scroll-target="#responsibly-manage-your-data">Responsibly manage your data</a></li>
+  <li><a href="#dont-request-more-resources-than-you-need" id="toc-dont-request-more-resources-than-you-need" class="nav-link" data-scroll-target="#dont-request-more-resources-than-you-need">Don’t request more resources than you need</a></li>
+  <li><a href="#keep-track-of-your-resource-usage" id="toc-keep-track-of-your-resource-usage" class="nav-link" data-scroll-target="#keep-track-of-your-resource-usage">Keep track of your resource usage</a></li>
+  <li><a href="#dont-misuse-the-login-nodes" id="toc-dont-misuse-the-login-nodes" class="nav-link" data-scroll-target="#dont-misuse-the-login-nodes">Don’t misuse the login nodes</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/intro_to_hpc.html">Introduction</a></li><li class="breadcrumb-item"><a href="../notebooks/infrastructure_expectations.html">Infrastructure expectations</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/intro_to_pawsey.html">Introduction</a></li><li class="breadcrumb-item"><a href="../notebooks/infrastructure_expectations.html">Infrastructure expectations</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">**What Pawsey expects of its users*</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="efficient-use" class="level2">
+<h2 class="anchored" data-anchor-id="efficient-use">Efficient use</h2>
+<p>Using HPC efficiently is important for fair access among users and minimising carbon footprint. Despite impressive <a href="https://pawsey.org.au/our-green-credentials/">green credentials</a>, Setonix, like all supercomputers, has a <a href="https://www.bcs.org/articles-opinion-and-research/carbon-footprint-the-not-so-hidden-cost-of-high-performance-computing/">large carbon footprint</a>. By benchmarking and optimising your code and workflows, you can save time as well as minimise environmental impacts of your research.</p>
+<p>As a national shared resource, there are potentially hundreds of other users accessing the system at the same time as you. For Setonix to remain efficient and usable, everyone needs to be courteous and use the system with consideration for others. This includes running efficient code that does not waste resources that could be utilised by others, as well as other general tips outlined below.</p>
+</section>
+<section id="use-job-queues-appropriately" class="level2">
+<h2 class="anchored" data-anchor-id="use-job-queues-appropriately">Use job queues appropriately</h2>
+<p>Setonix runs the SLURM job scheduler that manages the allocation of resources to users. When you submit a job, it is placed in a queue and will run when the requested resources become available. Unlike on Artemis where your job is allocated to a suitable queue based on your resource request, Setonix users need to specify which “partition” (SLURM terminology for job queue) their job is to run on. It is important for you to <a href="../notebooks/job_scripts.html#selecting-the-right-queue">pick a job partition/queue that is appropriate for your job</a>.</p>
+<ul>
+<li><a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Partitions">Setonix partitions</a></li>
+<li><a href="https://slurm.schedmd.com/documentation.html">SLURM user documentation</a></li>
+</ul>
+</section>
+<section id="responsibly-manage-your-data" class="level2">
+<h2 class="anchored" data-anchor-id="responsibly-manage-your-data">Responsibly manage your data</h2>
+<p><code>/scratch</code> is not a safe space for long term data storage. Files not used for <strong>21 days</strong> will be permanently deleted in line with Pawsey’s <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925880/Filesystem+Policies#Purge-policy-of-21-days">purge policy</a>. The strict scratch purge policy is in place to allow a generous upper limit of 1 PB scratch usage per project. This is in contrast to NCI where the purge period is longer but the scratch pool is limited to the project’s allocated amount.</p>
+<p>Pawsey recommends making active use of the 1 TB <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924476/Acacia+-+Quick+Start">Acacia</a> cloud object storage provided to Pawsey projects. Acacia is not subjected to purge and commands to move input and output data between Acacia and Setonix <code>/scratch</code> can be included within your job scripts. How to use Acacia in your workflow will be covered in more detail in <a href="../notebooks/setonix_filesystems.html">Setonix filesystems</a>.</p>
+<p>Neither Acacia or <code>/scratch</code> are backed up, so regular backups of all input data, job scripts, and important output files to RDS. Please follow the <a href="../notebooks/data_transfer.html">data transfer between Pawsey and RDS guide</a> for the best ways to do this.</p>
+<ul>
+<li><a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51929028/Setonix+General+Information#Filesystems-and-data-management">Setonix filesystems</a></li>
+<li><a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925854/File+Management">Setonix data management</a></li>
+<li><a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide">Acacia user guide</a></li>
+<li><a href="../notebooks/data_transfer.html">Transferring data between RDS and Pawsey</a></li>
+</ul>
+</section>
+<section id="dont-request-more-resources-than-you-need" class="level2">
+<h2 class="anchored" data-anchor-id="dont-request-more-resources-than-you-need">Don’t request more resources than you need</h2>
+<p>Don’t request resources that you won’t need, it will only result in your job and other users jobs being held up, and you wasting your service unit allocation. It can be hard to know what resources a tool needs, and this can vary on different hardware. We suggest the following:</p>
+<ul>
+<li><p>Step 1: Consult the software documentation</p>
+<ul>
+<li>Often, developers will outline the minimum amount of RAM (memory) and whether a tool is multi-threaded (e.g.&nbsp;use &gt;1 CPU or GPU)</li>
+</ul></li>
+<li><p>Step 2: Run a test job using our <a href="https://github.com/Sydney-Informatics-Hub/Pawsey-benchmarking">Pawsey benchmarking tool</a></p>
+<ul>
+<li>This will give you a good idea of how much resources you need to request for your main job</li>
+</ul></li>
+<li><p>Step 3: <a href="./support.qmd">Ask for help</a></p></li>
+<li><p><a href="../notebooks/benchmark.html">Benchmarking tasks on Setonix</a></p></li>
+</ul>
+</section>
+<section id="keep-track-of-your-resource-usage" class="level2">
+<h2 class="anchored" data-anchor-id="keep-track-of-your-resource-usage">Keep track of your resource usage</h2>
+<p>Pawsey projects are allocated a finite amount of “service units” (akin to CPU hours) from the University of Sydney HPC scheme. Each job uses service units, and in order to continue submitting jobs, you must have sufficient units available. Pawsey does allow jobs to run on Setonix after a project has consumed its allocation, however the job is assigned a <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service">lower priority</a> in the queue.</p>
+<p>It is also important to monitor your use of physical disk space and inodes on <code>/scratch</code> as well as <code>/home</code>. Please see the <a href="../notebooks/accounting.html">accounting</a> section for more details.</p>
+</section>
+<section id="dont-misuse-the-login-nodes" class="level2">
+<h2 class="anchored" data-anchor-id="dont-misuse-the-login-nodes">Don’t misuse the login nodes</h2>
+<p>Login nodes are for logging in to the system, basic file and directory navigation commands, and submitting jobs to the SLURM scheduler. Login nodes are not for large data transfers, compute tasks, excessive job status queries, or submitting jobs via high-iteration <code>for</code> loops. Doing so will overload these nodes, causing a slow-down and frustration for all users. Pawsey monitors login node traffic and inappropriate use will be targeted. Please see the sections on <a href="../notebooks/data_transfer.html">data transfer</a> and <a href="../notebooks/arrays.html">job arrays</a> for recommended strategies for these tasks.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
