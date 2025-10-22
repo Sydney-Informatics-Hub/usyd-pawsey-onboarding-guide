@@ -1,0 +1,60 @@
+---
+title: "**What Pawsey expects of its users*"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+## Efficient use 
+
+Using HPC efficiently is important for fair access among users and minimising carbon footprint. Despite impressive [green credentials](https://pawsey.org.au/our-green-credentials/), Setonix, like all supercomputers, has a [large carbon footprint](https://www.bcs.org/articles-opinion-and-research/carbon-footprint-the-not-so-hidden-cost-of-high-performance-computing/). By benchmarking and optimising your code and workflows, you can save time as well as minimise environmental impacts of your research.
+
+As a national shared resource, there are potentially hundreds of other users accessing the system at the same time as you. For Setonix to remain efficient and usable, everyone needs to be courteous and use the system with consideration for others. This includes running efficient code that does not waste resources that could be utilised by others, as well as other general tips outlined below.  
+
+
+## Use job queues appropriately
+
+Setonix runs the SLURM job scheduler that manages the allocation of resources to users. When you submit a job, it is placed in a queue and will run when the requested resources become available. Unlike on Artemis where your job is allocated to a suitable queue based on your resource request, Setonix users need to specify which "partition" (SLURM terminology for job queue) their job is to run on. It is important for you to [pick a job partition/queue that is appropriate for your job](./job_scripts.qmd#selecting-the-right-queue). 
+
+- [Setonix partitions](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Partitions)
+- [SLURM user documentation](https://slurm.schedmd.com/documentation.html)
+
+## Responsibly manage your data
+
+`/scratch` is not a safe space for long term data storage. Files not used for **21 days** will be permanently deleted in line with Pawsey's [purge policy](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925880/Filesystem+Policies#Purge-policy-of-21-days). The strict scratch purge policy is in place to allow a generous upper limit of 1 PB scratch usage per project. This is in contrast to NCI where the purge period is longer but the scratch pool is limited to the project's allocated amount. 
+
+Pawsey recommends making active use of the 1 TB [Acacia](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924476/Acacia+-+Quick+Start) cloud object storage provided to Pawsey projects. Acacia is not subjected to purge and commands to move input and output data between Acacia and Setonix `/scratch` can be included within your job scripts. How to use Acacia in your workflow will be covered in more detail in [Setonix filesystems](./setonix_filesystems.qmd). 
+
+Neither Acacia or `/scratch` are backed up, so regular backups of all input data, job scripts, and important output files to RDS. Please follow the [data transfer between Pawsey and RDS guide](./data_transfer.qmd) for the best ways to do this. 
+
+- [Setonix filesystems](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929028/Setonix+General+Information#Filesystems-and-data-management)
+- [Setonix data management](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925854/File+Management)
+- [Acacia user guide](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide) 
+- [Transferring data between RDS and Pawsey](./data_transfer.qmd)
+
+
+## Don't request more resources than you need
+
+Don't request resources that you won't need, it will only result in your job and other users jobs being held up, and you wasting your service unit allocation. It can be hard to know what resources a tool needs, and this can vary on different hardware. We suggest the following: 
+
+- Step 1: Consult the software documentation
+  - Often, developers will outline the minimum amount of RAM (memory) and whether a tool is multi-threaded (e.g. use >1 CPU or GPU)
+- Step 2: Run a test job using our [Pawsey benchmarking tool](https://github.com/Sydney-Informatics-Hub/Pawsey-benchmarking)
+  - This will give you a good idea of how much resources you need to request for your main job
+- Step 3: [Ask for help](./support.qmd)
+
+- [Benchmarking tasks on Setonix](./benchmark.qmd)
+
+
+## Keep track of your resource usage
+
+Pawsey projects are allocated a finite amount of "service units" (akin to CPU hours) from the University of Sydney HPC scheme. Each job uses service units, and in order to continue submitting jobs, you must have sufficient units available. Pawsey does allow jobs to run on Setonix after a project has consumed its allocation, however the job is assigned a [lower priority](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service) in the queue. 
+
+It is also important to monitor your use of physical disk space and inodes on `/scratch` as well as `/home`. Please see the [accounting](./accounting.qmd) section for more details. 
+
+
+## Don't misuse the login nodes 
+
+Login nodes are for logging in to the system, basic file and directory navigation commands, and submitting jobs to the SLURM scheduler. Login nodes are not for large data transfers, compute tasks, excessive job status queries, or submitting jobs via high-iteration `for` loops. Doing so will overload these nodes, causing a slow-down and frustration for all users. Pawsey monitors login node traffic and inappropriate use will be targeted. Please see the sections on [data transfer](./data_transfer.qmd) and [job arrays](./arrays.qmd) for recommended strategies for these tasks.
