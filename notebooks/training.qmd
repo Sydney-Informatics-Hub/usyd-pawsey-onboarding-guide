@@ -10,11 +10,13 @@ from: markdown+emoji
 **TBC**
 
 
-## Live introductory event
+## Live Pawsey Information Session
 
-31 st October 2025 2-3pm: **Sydney Research Cloud: Pawsey Information Session** (online) 
+**31 st October 2025 2-3pm (online)**  
+
+[Registration and event details](https://www.eventbrite.com.au/e/pawsey-information-session-for-university-of-sydney-researchers-tickets-1835827713109)
  
-The session will cover: 
+Delivered by Sydney Informatics Hub and Pawsey, this session will cover: 
 
 - An overview of the research computing landscape at The University of Sydney, including the new initiative offering compute hours on Setonix 
 - An introduction to Pawsey Supercomputing Research Centre and its national services 
