@@ -37,18 +37,7 @@
     "href": "notebooks/accounting.html",
     "title": "Resource accounting",
     "section": "",
-    "text": "TBC",
-    "crumbs": [
-      "Working on Setonix",
-      "Resource accounting"
-    ]
-  },
-  {
-    "objectID": "notebooks/accounting.html#origin-portal",
-    "href": "notebooks/accounting.html#origin-portal",
-    "title": "Resource accounting",
-    "section": "Origin portal",
-    "text": "Origin portal\nhttps://portal.pawsey.org.au/origin",
+    "text": "TBC\n\nQoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service\nService unit calculator: https://pawseysc.github.io/su-calculator/\nmunlink https://pawsey.atlassian.net/wiki/x/jFMYAw\n\nYou can check your usage of the /scratch filesystem in terms of number of files and kilobytes. Run the following command:\n$ lfs quota /scratch\nquota -s -f /home\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925880/Filesystem+Policies#Best-practices\nwe recommend not setting the stripping explicitly. For this, check Progressive File Layout (PFL) and File Striping.\nThe /scratch filesystem is a shared resource that suffers low performance when the number of files increases too much. Users should actively remove their files if no longer in use, rather than waiting for the system to delete them. For this, check Deleting Large Numbers of Files on Lustre Filesystems.",
     "crumbs": [
       "Working on Setonix",
       "Resource accounting"
@@ -253,6 +242,17 @@
     ]
   },
   {
+    "objectID": "notebooks/faq.html",
+    "href": "notebooks/faq.html",
+    "title": "USyd Pawsey Setonix User Guide",
+    "section": "",
+    "text": "https://pawsey.atlassian.net/wiki/spaces/US/pages/51925876/Pawsey+Filesystems+and+their+Use#PawseyFilesystemsandtheirUse-Whattodoifyouexceededyourquota",
+    "crumbs": [
+      "Support and resources",
+      "FAQs"
+    ]
+  },
+  {
     "objectID": "notebooks/access_setonix.html",
     "href": "notebooks/access_setonix.html",
     "title": "Accessing Setonix",
@@ -297,11 +297,22 @@
     ]
   },
   {
-    "objectID": "notebooks/job_scripts.html#submittinng",
-    "href": "notebooks/job_scripts.html#submittinng",
+    "objectID": "notebooks/job_scripts.html#submitting",
+    "href": "notebooks/job_scripts.html#submitting",
     "title": "Job scripts and submission",
-    "section": "Submittinng",
-    "text": "Submittinng\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925964/Job+Scheduling#JobScheduling-SubmittingajobtoSlurm",
+    "section": "Submitting",
+    "text": "Submitting\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925964/Job+Scheduling#JobScheduling-SubmittingajobtoSlurm",
+    "crumbs": [
+      "Running a job",
+      "Job scripts and submission"
+    ]
+  },
+  {
+    "objectID": "notebooks/job_scripts.html#scripted-workflow-with-data-staging-fromto-acacia",
+    "href": "notebooks/job_scripts.html#scripted-workflow-with-data-staging-fromto-acacia",
+    "title": "Job scripts and submission",
+    "section": "Scripted workflow with data staging from/to Acacia",
+    "text": "Scripted workflow with data staging from/to Acacia\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924512/Supercomputing+workflow+example",
     "crumbs": [
       "Running a job",
       "Job scripts and submission"
@@ -412,7 +423,29 @@
     "href": "notebooks/software.html",
     "title": "Software",
     "section": "",
-    "text": "TBC\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51929054/Setonix+Software+Environment\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51926046/Software+Stack\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925908/How+to+Install+Software\n\nUsers can install tools into /software/projects/\nThere is a shared writable space at /software/projects/ for group-wide tools as well as per-user folders for personal use tools.",
+    "text": "TBC\nUsers can install tools into /software/projects/\nThere is a shared writable space at /software/projects/ for group-wide tools as well as per-user folders for personal use tools.",
+    "crumbs": [
+      "Working on Setonix",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "notebooks/software.html#install-tools-with-spack",
+    "href": "notebooks/software.html#install-tools-with-spack",
+    "title": "Software",
+    "section": "Install tools with Spack",
+    "text": "Install tools with Spack\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925886/Spack\nmodule load spack/0.23.1\n/software/projects/\\(PAWSEY_PROJECT/\\)USER/setonix/2025.08/spack_repo",
+    "crumbs": [
+      "Working on Setonix",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "notebooks/software.html#tips",
+    "href": "notebooks/software.html#tips",
+    "title": "Software",
+    "section": "Tips",
+    "text": "Tips\n\nProblem: Spack commands result in error because my $PAWSEY_PROJECT environment variable is set to the wrong project:\n\n\n Warning: Failed to initialize repository: '/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'.\n  No repo.yaml found in '/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'\nTo remove the bad repository, run this command:\n      spack repo rm /software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo\ncwil@setonix-01:~&gt;  spack repo rm /software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo\n==&gt; Error: No repository with path or namespace: /software/projects/pawsey0545/cwil/setonix/2025.08/spack_repo\nSolution:\ncwil@setonix-01:~&gt; ls /scratch/pawsey0545\nls: cannot access '/scratch/pawsey0545': No such file or directory\ncwil@setonix-01:~&gt; cat ~/.pawsey_project\npawsey0545\ncwil@setonix-01:~&gt; sed -i 's/0545/1205/' ~/.pawsey_project\ncwil@setonix-01:~&gt; cat ~/.pawsey_project\npawsey1205\nPlease review the Pawsey Modules page for more details.\nCompared to Artemis and Gadi\nOn Pawsey, modules should be loaded with their full version, eg module load spack/0.23.1. Failure to\nPawsey has numerous tools installed globally as modules. USyd users may be well acquainted with module commands from their use of Artemis and/or NCI Gadi HPC. Please review the Pawsey [Modules page] for more details.\nTools not globally available can be self-installed",
     "crumbs": [
       "Working on Setonix",
       "Software"

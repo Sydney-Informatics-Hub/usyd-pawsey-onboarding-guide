@@ -328,14 +328,8 @@ cookieconsent.run({
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#origin-portal" id="toc-origin-portal" class="nav-link active" data-scroll-target="#origin-portal">Origin portal</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -365,12 +359,14 @@ cookieconsent.run({
 <li>Service unit calculator: https://pawseysc.github.io/su-calculator/</li>
 <li>munlink https://pawsey.atlassian.net/wiki/x/jFMYAw</li>
 </ul>
-<section id="origin-portal" class="level2">
-<h2 class="anchored" data-anchor-id="origin-portal">Origin portal</h2>
-<p>https://portal.pawsey.org.au/origin</p>
+<p>You can check your usage of the /scratch filesystem in terms of number of files and kilobytes. Run the following command:</p>
+<pre><code>$ lfs quota /scratch</code></pre>
+<p>quota -s -f /home</p>
+<p>https://pawsey.atlassian.net/wiki/spaces/US/pages/51925880/Filesystem+Policies#Best-practices</p>
+<p>we recommend not setting the stripping explicitly. For this, check Progressive File Layout (PFL) and File Striping.</p>
+<p>The /scratch filesystem is a shared resource that suffers low performance when the number of files increases too much. Users should actively remove their files if no longer in use, rather than waiting for the system to delete them. For this, check Deleting Large Numbers of Files on Lustre Filesystems.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
