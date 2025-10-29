@@ -24,13 +24,13 @@ Connection to Setonix is via `ssh`. To connect with `ssh`, you will need to use 
 
 If you need to use graphical interfaces on Setonix, please follow [Pawsey's instructions](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925866/Running+Graphical+Applications+GUI+on+Supercomputers) on how to use `ssh` with  `X11 forwarding`. 
 
-:::{.callout-tip}
+:::{.callout-note}
 Please note that this is for **lightweight GUIs** only. For intensive visualisation tasks, for example those requiring large RAM or GPUs, please use [Pawsey's dedidcated visualisation services](https://pawsey.atlassian.net/wiki/spaces/US/pages/51923228/Visualisation+Documentation).
 :::
 
 ### Connecting with a terminal application
 
-The Setonix user guide [How to log onto Setonix](https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix) page has step by step instructions for logging on with a number of commonly used connection clients:
+The Setonix user guide [How to log onto Setonix](https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix) page has step by step instructions for logging on with a number of commonly used terminal clients:
 
 - [Mac or Linux native terminal](https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix#HowtologintoSetonix-LoginwithaterminalclientonLinuxorOSX)
 - [MobaXTerm on Windows](https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix#HowtologintoSetonix-LoginwithMobaXTermonWindows)
@@ -42,7 +42,7 @@ The Setonix user guide [How to log onto Setonix](https://pawsey.atlassian.net/wi
 
 However, there are some drawbacks to using VSCode on HPC, and these drawbacks - along with the required solutions - are detailed [here](https://pawsey.atlassian.net/wiki/spaces/US/pages/51931360/Visual+Studio+Code+for+Remote+Development). 
 
-:::{.callout-caution}
+:::{.callout-important}
 If you use VSCode to work on Setonix, **please carefully read and adhere to [this Pawsey VSCode page](
 https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix#HowtologintoSetonix-LoginwithPuTTYonWindows)**
 :::
@@ -81,7 +81,7 @@ Having successfully logged in, you should see a small blue or green box in the b
 **Set up your VSCode window**
 
 1. Open a new folder in the file explorer panel on the left side of the screen. You can do this by typing `Ctrl` + `K`, `Ctrl` + `O` (Windows) or `Cmd`+`K`+ `Cmd` + `O` (MacOS); or use the `File` menu and select `Open folder`. 
-2. Select `/scratch/iz89` to open your workspace. You can change this at any point by opening a new folder. Keep in mind you will be requested to provide your password each time, unless you have [set up `ssh` keys between your local computer and Setonix](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925870/Use+of+SSH+Keys+for+Authentication). 
+2. Enter the path to `/scratch/<pawsey-project-id>` to open your workspace. You can change this at any point by opening a new folder. Keep in mind you will be requested to provide your password each time, unless you have [set up `ssh` keys between your local computer and Setonix](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925870/Use+of+SSH+Keys+for+Authentication). 
 2. When prompted, select the box for `Trust the authors of all files in the parent folder` then click `Yes, I trust the authors`
 3.	To open a terminal, type `Ctrl`+`J` (Windows) or `Cmd`+`J` (MacOS), or select `Terminal` from the top menu bar. The terminal will open at the bottom of the environment window. Note that you can have more than one terminal active within your VSCode environment; new terminals can be opened by selecting the `+` icon in the top right corner of the terminal. 
 

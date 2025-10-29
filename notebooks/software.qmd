@@ -11,6 +11,9 @@ from: markdown+emoji
 **TBC**
 
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929054/Setonix+Software+Environment
+- https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules
+- https://pawsey.atlassian.net/wiki/spaces/US/pages/51926046/Software+Stack 
+- https://pawsey.atlassian.net/wiki/spaces/US/pages/51925908/How+to+Install+Software 
 
 Users can install tools into /software/projects/<pawsey project ID>
 
