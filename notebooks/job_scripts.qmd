@@ -22,6 +22,11 @@ from: markdown+emoji
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929056/Example+Slurm+Batch+Scripts+for+Setonix+on+GPU+Compute+Nodes 
 
 
-## Submittinng 
+## Submitting 
 
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51925964/Job+Scheduling#JobScheduling-SubmittingajobtoSlurm 
+
+## Scripted workflow with data staging from/to Acacia 
+
+- https://pawsey.atlassian.net/wiki/spaces/US/pages/51924512/Supercomputing+workflow+example
+ 

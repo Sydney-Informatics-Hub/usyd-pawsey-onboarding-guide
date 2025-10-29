@@ -15,6 +15,17 @@ from: markdown+emoji
 - munlink https://pawsey.atlassian.net/wiki/x/jFMYAw 
 
 
-## Origin portal
 
-https://portal.pawsey.org.au/origin 
+You can check your usage of the /scratch filesystem in terms of number of files and kilobytes. Run the following command:
+
+    $ lfs quota /scratch
+
+
+quota -s -f /home
+
+
+https://pawsey.atlassian.net/wiki/spaces/US/pages/51925880/Filesystem+Policies#Best-practices
+
+we recommend not setting the stripping explicitly. For this, check Progressive File Layout (PFL) and File Striping.
+
+The /scratch filesystem is a shared resource that suffers low performance when the number of files increases too much. Users should actively remove their files if no longer in use, rather than waiting for the system to delete them. For this, check Deleting Large Numbers of Files on Lustre Filesystems.
