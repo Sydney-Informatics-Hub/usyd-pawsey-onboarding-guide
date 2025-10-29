@@ -27,7 +27,9 @@ website:
         - text: "Accessing Setonix"
           href: notebooks/access_setonix.html
       - section: "Working on Setonix"
-        contents: 
+        contents:
+        - text: "Project administration"
+          href: notebooks/admin.html          
         - text: "Logging on"
           href: notebooks/login.html        
         - text: "Setonix filesystems"
@@ -36,7 +38,7 @@ website:
           href: notebooks/data_transfer.html
         - text: "Software"
           href: notebooks/software.html
-        - text: "Accounting"
+        - text: "Resource accounting"
           href: notebooks/accounting.html
       - section: "Running a job"
         contents: 

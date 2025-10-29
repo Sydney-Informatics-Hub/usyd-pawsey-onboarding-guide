@@ -1,0 +1,38 @@
+---
+title: "Project administration"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+from: markdown+emoji
+---
+
+
+## Pawsey account and project creation
+
+Before accessing Setonix, you will need to have a Pawsey account and project. For Q4 2025, access to Pawsey under the Sydney Research Cloud is by expression of interest. Please submit our [EOI](https://sydney.au1.qualtrics.com/jfe/form/SV_8xfMUm8RGupw7HM) or [contact SIH](mailto:nci-sydney.scheme@sydney.edu.au) for more information. General access to Pawsey for USyd researchers will commence 2026. 
+
+After your Pawsey account and project under they Sydney Scheme for national HPC access has been created, you will receive an email from Pawsey with your user credentials and project ID. **Please check your junk folder if you are waiting on a project approval email!** 
+
+:::{.callout-tip}
+We recommend adding the `pawsey.org.au` domain to your safe domains list in Outlook. 
+:::
+
+If you have a pre-existing Pawsey project, your user login will remain the same. You can choose to have your Sydney Scheme service units added to your pre-existing project, or create a new one under the Sydney Scheme. 
+
+
+## Origin portal
+
+The Pawsey user web portal [Origin](https://portal.pawsey.org.au/origin) is where you can perform project administration tasks such as:
+
+- View projects you are a member of
+- View member lists of your projects
+- Invite new researchers to your projects
+- View resources allocated to your projects
+- Update your personal details
+- Manage [Acacia](https://pawsey.org.au/systems/acacia/) keys 
+
+Log in with your Pawsey user ID and password to access this platform.
+
+Currently, you cannot review resource usage nor request increased resources (service units, storage) via Origin, although the platform is being redeveloped imminently and we hope this feature will be included. Please see the section on [Resource accounting](#notebooks/accounting.qmd) to review your compute usage. For increases to service units, please [contact SIH](mailto:nci-sydney.scheme@sydney.edu.au), and for increases to storage, please [contact Pawsey](mailto:help@pawsey.org.au). 
+

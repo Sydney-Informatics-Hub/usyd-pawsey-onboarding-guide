@@ -15,3 +15,5 @@ Please see the [University of Sydney Research Computing documentation](https://s
 :::
 
 For details about logging on to Setonix once your Pawsey project is set up, please see [Logging on](#notebooks/login.qmd).
+
+For details about project administration (members, allocations etc), please see [Project administration](#notebooks/login.qmd).
