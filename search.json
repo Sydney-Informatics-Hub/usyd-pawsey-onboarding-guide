@@ -40,7 +40,7 @@
     "text": "TBC\n\nQoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service\nService unit calculator: https://pawseysc.github.io/su-calculator/",
     "crumbs": [
       "Working on Setonix",
-      "Accounting"
+      "Resource accounting"
     ]
   },
   {
@@ -169,67 +169,11 @@
     "href": "notebooks/access_setonix.html",
     "title": "Accessing Setonix",
     "section": "",
-    "text": "University of Sydney researchers are entitled to fully-subsidised access to Pawsey facilities through the Sydney Scheme. Access to Pawsey systems will be an ongoing feature of the Sydney Research Cloud initiative.\n\n\n\n\n\n\nNoteAttention researchers\n\n\n\nPlease see the University of Sydney Research Computing documentation for details on how to access Pawsey Setonix.\n\n\nFor details about logging on to Setonix once your Pawsey project is set up, please see Logging on.",
+    "text": "University of Sydney researchers are entitled to fully-subsidised access to Pawsey facilities through the Sydney Scheme. Access to Pawsey systems will be an ongoing feature of the Sydney Research Cloud initiative.\n\n\n\n\n\n\nNoteAttention researchers\n\n\n\nPlease see the University of Sydney Research Computing documentation for details on how to access Pawsey Setonix.\n\n\nFor details about logging on to Setonix once your Pawsey project is set up, please see Logging on.\nFor details about project administration (members, allocations etc), please see Project administration.",
     "crumbs": [
       "Introduction",
       "Accessing Setonix"
     ]
-  },
-  {
-    "objectID": "notebooks/job_monitoring.html",
-    "href": "notebooks/job_monitoring.html",
-    "title": "Job monitoring",
-    "section": "",
-    "text": "TBC\n\nhttp://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm#HowtoMigratefromPBSProtoSlurm-Displayingjobstatus:thesqueuecommand",
-    "crumbs": [
-      "Running a job",
-      "Job monitoring"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "HPC for USyd researchers",
-    "section": "",
-    "text": "Under the Sydney Research Cloud, researchers at The University of Sydney have in-kind access to both Tier-1 supercomputers in Australia: Pawsey’s Setonix and NCI’s Gadi.\nFor general information on accessing these services, visit National HPCs. For alternatives to HPC, please visit our Research Computing documentation.\nThis guide has been developed to support University of Sydney researchers in setting up their computational workflows on Pawsey’s Setonix HPC, with particular focus on key differences between Pawsey and other HPC facilities our researchers may be familiar with (for example, NCI Gadi HPC and the decommissioned Artemis HPC). Frequent links to relevant parts of the comprehensive documentation available from Pawsey are included for more detail.\nA similar guide for onboarding NCI Gadi is also available.",
-    "crumbs": [
-      "HPC for USyd researchers"
-    ]
-  },
-  {
-    "objectID": "support.html",
-    "href": "support.html",
-    "title": "Support and resources",
-    "section": "",
-    "text": "NoteAttention researchers\n\n\n\nPlease see the University of Sydney Research Computing documentation for a comprehensive overview of support available to you as a University of Sydney researcher using Pawsey resources."
-  },
-  {
-    "objectID": "support.html#technical-documentation",
-    "href": "support.html#technical-documentation",
-    "title": "Support and resources",
-    "section": "Technical documentation",
-    "text": "Technical documentation\nFamiliarise yourself with Setonix using Pawsey’s documentation and the University of Sydney’s Research Computing documentation\n\nPawsey Setonix user guide\nUSyd Research Computing HPC documentation - more Pawsey content TBA"
-  },
-  {
-    "objectID": "support.html#live-and-self-directed-training",
-    "href": "support.html#live-and-self-directed-training",
-    "title": "Support and resources",
-    "section": "Live and self-directed training",
-    "text": "Live and self-directed training\nIf you are new to HPC and/or Pawsey, we suggest you attend - TBA\nThere are various trainings offered by SIH and Pawsey on HPC and data analysis topics:\n\nSIH training calendar\nPawsey training calendar"
-  },
-  {
-    "objectID": "support.html#demonstrations",
-    "href": "support.html#demonstrations",
-    "title": "Support and resources",
-    "section": "Demonstrations",
-    "text": "Demonstrations\nHPC experts at SIH have created a series of videos to help you get jobs running on Pawsey:\nTBA"
-  },
-  {
-    "objectID": "support.html#i-need-to-talk-to-someone",
-    "href": "support.html#i-need-to-talk-to-someone",
-    "title": "Support and resources",
-    "section": "I need to talk to someone",
-    "text": "I need to talk to someone\nPlease contact the following people depending on your needs:\nTBA"
   },
   {
     "objectID": "notebooks/job_scripts.html",
@@ -273,6 +217,95 @@
     "crumbs": [
       "Running a job",
       "Job scripts and submission"
+    ]
+  },
+  {
+    "objectID": "support.html",
+    "href": "support.html",
+    "title": "Support and resources",
+    "section": "",
+    "text": "NoteAttention researchers\n\n\n\nPlease see the University of Sydney Research Computing documentation for a comprehensive overview of support available to you as a University of Sydney researcher using Pawsey resources."
+  },
+  {
+    "objectID": "support.html#technical-documentation",
+    "href": "support.html#technical-documentation",
+    "title": "Support and resources",
+    "section": "Technical documentation",
+    "text": "Technical documentation\nFamiliarise yourself with Setonix using Pawsey’s documentation and the University of Sydney’s Research Computing documentation\n\nPawsey Setonix user guide\nUSyd Research Computing HPC documentation - more Pawsey content TBA"
+  },
+  {
+    "objectID": "support.html#live-and-self-directed-training",
+    "href": "support.html#live-and-self-directed-training",
+    "title": "Support and resources",
+    "section": "Live and self-directed training",
+    "text": "Live and self-directed training\nIf you are new to HPC and/or Pawsey, we suggest you attend - TBA\nThere are various trainings offered by SIH and Pawsey on HPC and data analysis topics:\n\nSIH training calendar\nPawsey training calendar"
+  },
+  {
+    "objectID": "support.html#demonstrations",
+    "href": "support.html#demonstrations",
+    "title": "Support and resources",
+    "section": "Demonstrations",
+    "text": "Demonstrations\nHPC experts at SIH have created a series of videos to help you get jobs running on Pawsey:\nTBA"
+  },
+  {
+    "objectID": "support.html#i-need-to-talk-to-someone",
+    "href": "support.html#i-need-to-talk-to-someone",
+    "title": "Support and resources",
+    "section": "I need to talk to someone",
+    "text": "I need to talk to someone\nPlease contact the following people depending on your needs:\nTBA"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "HPC for USyd researchers",
+    "section": "",
+    "text": "Under the Sydney Research Cloud, researchers at The University of Sydney have in-kind access to both Tier-1 supercomputers in Australia: Pawsey’s Setonix and NCI’s Gadi.\nFor general information on accessing these services, visit National HPCs. For alternatives to HPC, please visit our Research Computing documentation.\nThis guide has been developed to support University of Sydney researchers in setting up their computational workflows on Pawsey’s Setonix HPC, with particular focus on key differences between Pawsey and other HPC facilities our researchers may be familiar with (for example, NCI Gadi HPC and the decommissioned Artemis HPC). Frequent links to relevant parts of the comprehensive documentation available from Pawsey are included for more detail.\nA similar guide for onboarding NCI Gadi is also available.",
+    "crumbs": [
+      "HPC for USyd researchers"
+    ]
+  },
+  {
+    "objectID": "notebooks/job_monitoring.html",
+    "href": "notebooks/job_monitoring.html",
+    "title": "Job monitoring",
+    "section": "",
+    "text": "TBC\n\nhttp://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm#HowtoMigratefromPBSProtoSlurm-Displayingjobstatus:thesqueuecommand",
+    "crumbs": [
+      "Running a job",
+      "Job monitoring"
+    ]
+  },
+  {
+    "objectID": "notebooks/admin.html",
+    "href": "notebooks/admin.html",
+    "title": "Project administration",
+    "section": "",
+    "text": "Before accessing Setonix, you will need to have a Pawsey account and project. For Q4 2025, access to Pawsey under the Sydney Research Cloud is by expression of interest. Please submit our EOI or contact SIH for more information. General access to Pawsey for USyd researchers will commence 2026.\nAfter your Pawsey account and project under they Sydney Scheme for national HPC access has been created, you will receive an email from Pawsey with your user credentials and project ID. Please check your junk folder if you are waiting on a project approval email!\n\n\n\n\n\n\nTip\n\n\n\nWe recommend adding the pawsey.org.au domain to your safe domains list in Outlook.\n\n\nIf you have a pre-existing Pawsey project, your user login will remain the same. You can choose to have your Sydney Scheme service units added to your pre-existing project, or create a new one under the Sydney Scheme.",
+    "crumbs": [
+      "Working on Setonix",
+      "Project administration"
+    ]
+  },
+  {
+    "objectID": "notebooks/admin.html#pawsey-account-and-project-creation",
+    "href": "notebooks/admin.html#pawsey-account-and-project-creation",
+    "title": "Project administration",
+    "section": "",
+    "text": "Before accessing Setonix, you will need to have a Pawsey account and project. For Q4 2025, access to Pawsey under the Sydney Research Cloud is by expression of interest. Please submit our EOI or contact SIH for more information. General access to Pawsey for USyd researchers will commence 2026.\nAfter your Pawsey account and project under they Sydney Scheme for national HPC access has been created, you will receive an email from Pawsey with your user credentials and project ID. Please check your junk folder if you are waiting on a project approval email!\n\n\n\n\n\n\nTip\n\n\n\nWe recommend adding the pawsey.org.au domain to your safe domains list in Outlook.\n\n\nIf you have a pre-existing Pawsey project, your user login will remain the same. You can choose to have your Sydney Scheme service units added to your pre-existing project, or create a new one under the Sydney Scheme.",
+    "crumbs": [
+      "Working on Setonix",
+      "Project administration"
+    ]
+  },
+  {
+    "objectID": "notebooks/admin.html#origin-portal",
+    "href": "notebooks/admin.html#origin-portal",
+    "title": "Project administration",
+    "section": "Origin portal",
+    "text": "Origin portal\nThe Pawsey user web portal Origin is where you can perform project administration tasks such as:\n\nView projects you are a member of\nView member lists of your projects\nInvite new researchers to your projects\nView resources allocated to your projects\nUpdate your personal details\nManage Acacia keys\n\nLog in with your Pawsey user ID and password to access this platform.\nCurrently, you cannot review resource usage nor request increased resources (service units, storage) via Origin, although the platform is being redeveloped imminently and we hope this feature will be included. Please see the section on Resource accounting to review your compute usage. For increases to service units, please contact SIH, and for increases to storage, please contact Pawsey.",
+    "crumbs": [
+      "Working on Setonix",
+      "Project administration"
     ]
   },
   {
