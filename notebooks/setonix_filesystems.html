@@ -334,7 +334,7 @@ cookieconsent.run({
    
   <ul>
   <li><a href="#home" id="toc-home" class="nav-link active" data-scroll-target="#home">/home</a></li>
-  <li><a href="#scratch" id="toc-scratch" class="nav-link" data-scroll-target="#scratch">/scratch/<pawsey-project-id></pawsey-project-id></a></li>
+  <li><a href="#scratch" id="toc-scratch" class="nav-link" data-scroll-target="#scratch">/scratch</a></li>
   <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">/software</a></li>
   <li><a href="#acacia" id="toc-acacia" class="nav-link" data-scroll-target="#acacia">Acacia</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -381,19 +381,19 @@ cookieconsent.run({
 </thead>
 <tbody>
 <tr class="odd">
-<td>/home</td>
+<td><code>/home</code></td>
 <td>1 GB per user</td>
 <td>10K per user</td>
 <td>User configuration files and ssh keys</td>
 </tr>
 <tr class="even">
-<td>/scratch/<pawsey-project-id></pawsey-project-id></td>
+<td><code>/scratch/&lt;pawsey-project-id&gt;</code></td>
 <td>1 PB per project</td>
 <td>1M per user</td>
 <td>Compute job input and output (high performance)</td>
 </tr>
 <tr class="odd">
-<td>/software/projects/<pawsey-project-id></pawsey-project-id></td>
+<td><code>/software/projects/&lt;pawsey-project-ID&gt;</code></td>
 <td>256 GB per project</td>
 <td>100K per user</td>
 <td>Self installed tools and containers</td>
@@ -402,7 +402,7 @@ cookieconsent.run({
 <td>Acacia</td>
 <td>100 GB per user + 1 TB per project</td>
 <td>NA</td>
-<td>Persistent storage</td>
+<td>Persistent storage (not backed up)</td>
 </tr>
 </tbody>
 </table>
@@ -428,7 +428,7 @@ Tip
 </div>
 </section>
 <section id="scratch" class="level2">
-<h2 class="anchored" data-anchor-id="scratch">/scratch/<pawsey-project-id></pawsey-project-id></h2>
+<h2 class="anchored" data-anchor-id="scratch">/scratch</h2>
 <p>Pawsey has a generous upper limit of 1 petabyte (PB) per project on <code>/scratch</code>. To afford this, the file retention period on <code>/scratch</code> is <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925880/Filesystem+Policies#Purge-policy-of-21-days">21 days</a>. There is no quarantine period for files purged from <code>/scratch</code> so users are encouraged to actively incorporate <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924512/Supercomputing+workflow+example">data staging between <code>/scratch</code> and Acacia</a> for their workflows and regularly <a href="#notebooks/data_transfer.qmd">backup to USyd RDS</a>. Note that the 21 day count commences from when the file was last read or modified, not necessarily from when it was created.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -443,6 +443,7 @@ Important
 <p>Do not use <code>touch</code> to attempt to circumvent the Pawsey <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925880/Filesystem+Policies#Purge-policy-of-21-days">purge policy</a>! This will degrade performance for all users and potentially result in your Pawsey access being revoked.</p>
 </div>
 </div>
+<p><br></p>
 <p>Pawsey encourages all users to actively manage their <code>scratch</code> utilisation through <a href="#notebooks/accounting.qmd">monitoring <code>scratch</code> usage</a> and using <code>munlink</code> to <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925900/Deleting+Large+Numbers+of+Files+on+Lustre+Filesystems">remove large numbers of files from <code>scratch</code></a> rather than waiting for the purge policy to clean up for you. Active management of this shared finite resource ensures optimal performance of the filesystem, leading to faster execution times and a better experience for all users.</p>
 </section>
 <section id="software" class="level2">
