@@ -412,13 +412,13 @@ cookieconsent.run({
 <section id="connecting-with-x11-forwarding" class="level3">
 <h3 class="anchored" data-anchor-id="connecting-with-x11-forwarding">Connecting with X11 forwarding</h3>
 <p>If you need to use graphical interfaces on Setonix, please follow <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925866/Running+Graphical+Applications+GUI+on+Supercomputers">Pawsey’s instructions</a> on how to use <code>ssh</code> with <code>X11 forwarding</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -428,7 +428,7 @@ Tip
 </section>
 <section id="connecting-with-a-terminal-application" class="level3">
 <h3 class="anchored" data-anchor-id="connecting-with-a-terminal-application">Connecting with a terminal application</h3>
-<p>The Setonix user guide <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix">How to log onto Setonix</a> page has step by step instructions for logging on with a number of commonly used connection clients:</p>
+<p>The Setonix user guide <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix">How to log onto Setonix</a> page has step by step instructions for logging on with a number of commonly used terminal clients:</p>
 <ul>
 <li><a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix#HowtologintoSetonix-LoginwithaterminalclientonLinuxorOSX">Mac or Linux native terminal</a></li>
 <li><a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix#HowtologintoSetonix-LoginwithMobaXTermonWindows">MobaXTerm on Windows</a></li>
@@ -439,13 +439,13 @@ Tip
 <h3 class="anchored" data-anchor-id="connecting-with-vscode-ide">Connecting with VSCode IDE</h3>
 <p><a href="https://code.visualstudio.com/">VSCode</a> is a popular and user friendly interface allowing you to log on to a machine as well as providing advanced code editing extensions.</p>
 <p>However, there are some drawbacks to using VSCode on HPC, and these drawbacks - along with the required solutions - are detailed <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51931360/Visual+Studio+Code+for+Remote+Development">here</a>.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -480,7 +480,7 @@ Caution
 <p><strong>Set up your VSCode window</strong></p>
 <ol type="1">
 <li>Open a new folder in the file explorer panel on the left side of the screen. You can do this by typing <code>Ctrl</code> + <code>K</code>, <code>Ctrl</code> + <code>O</code> (Windows) or <code>Cmd</code>+<code>K</code>+ <code>Cmd</code> + <code>O</code> (MacOS); or use the <code>File</code> menu and select <code>Open folder</code>.</li>
-<li>Select <code>/scratch/iz89</code> to open your workspace. You can change this at any point by opening a new folder. Keep in mind you will be requested to provide your password each time, unless you have <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925870/Use+of+SSH+Keys+for+Authentication">set up <code>ssh</code> keys between your local computer and Setonix</a>.</li>
+<li>Enter the path to <code>/scratch/&lt;pawsey-project-id&gt;</code> to open your workspace. You can change this at any point by opening a new folder. Keep in mind you will be requested to provide your password each time, unless you have <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925870/Use+of+SSH+Keys+for+Authentication">set up <code>ssh</code> keys between your local computer and Setonix</a>.</li>
 <li>When prompted, select the box for <code>Trust the authors of all files in the parent folder</code> then click <code>Yes, I trust the authors</code></li>
 <li>To open a terminal, type <code>Ctrl</code>+<code>J</code> (Windows) or <code>Cmd</code>+<code>J</code> (MacOS), or select <code>Terminal</code> from the top menu bar. The terminal will open at the bottom of the environment window. Note that you can have more than one terminal active within your VSCode environment; new terminals can be opened by selecting the <code>+</code> icon in the top right corner of the terminal.</li>
 </ol>

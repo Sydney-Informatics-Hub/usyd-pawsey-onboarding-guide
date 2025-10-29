@@ -35,9 +35,20 @@
   {
     "objectID": "notebooks/accounting.html",
     "href": "notebooks/accounting.html",
-    "title": "Accounting",
+    "title": "Resource accounting",
     "section": "",
-    "text": "TBC\n\nQoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service\nService unit calculator: https://pawseysc.github.io/su-calculator/",
+    "text": "TBC",
+    "crumbs": [
+      "Working on Setonix",
+      "Resource accounting"
+    ]
+  },
+  {
+    "objectID": "notebooks/accounting.html#origin-portal",
+    "href": "notebooks/accounting.html#origin-portal",
+    "title": "Resource accounting",
+    "section": "Origin portal",
+    "text": "Origin portal\nhttps://portal.pawsey.org.au/origin",
     "crumbs": [
       "Working on Setonix",
       "Resource accounting"
@@ -169,7 +180,7 @@
     "href": "notebooks/login.html#connection-with-ssh",
     "title": "Logging in to Setonix",
     "section": "Connection with ssh",
-    "text": "Connection with ssh\nConnection to Setonix is via ssh. To connect with ssh, you will need to use a terminal application or integrated development environment (IDE) on your local computer.\n\nConnecting with X11 forwarding\nIf you need to use graphical interfaces on Setonix, please follow Pawsey’s instructions on how to use ssh with X11 forwarding.\n\n\n\n\n\n\nTip\n\n\n\nPlease note that this is for lightweight GUIs only. For intensive visualisation tasks, for example those requiring large RAM or GPUs, please use Pawsey’s dedidcated visualisation services.\n\n\n\n\nConnecting with a terminal application\nThe Setonix user guide How to log onto Setonix page has step by step instructions for logging on with a number of commonly used connection clients:\n\nMac or Linux native terminal\nMobaXTerm on Windows\nPutty on Windows\n\n\n\nConnecting with VSCode IDE\nVSCode is a popular and user friendly interface allowing you to log on to a machine as well as providing advanced code editing extensions.\nHowever, there are some drawbacks to using VSCode on HPC, and these drawbacks - along with the required solutions - are detailed here.\n\n\n\n\n\n\nCaution\n\n\n\nIf you use VSCode to work on Setonix, please carefully read and adhere to this Pawsey VSCode page\n\n\nInstall VSCode and connect to Setonix\n\nDownload Visual Studio Code for your system from here and follow the instructions for:\n\nmacOS\nWindows\n\nOpen the VS Code application on your computer\n\n\n\nClick on the extensions button (four blocks) on the left side bar and install the remote SSH extension. Click on the blue install button.\n\n\nAdd the Setonix host details to your .ssh config file:\nHost Setonix\n  HostName pawsey.setonix.org.au\n  User &lt;your-pawsey-username&gt;\n\nType Ctrl+Shift+P (Cmd+Shift+P for Mac) and select Remote-SSH: Connect to Host and Pawsey\nWhen prompted, select Linux as the platform of the remote host from the dropdown menu\nType in your Pawsey password and hit enter\n\nHaving successfully logged in, you should see a small blue or green box in the bottom left corner of your screen:\n\nSet up your VSCode window\n\nOpen a new folder in the file explorer panel on the left side of the screen. You can do this by typing Ctrl + K, Ctrl + O (Windows) or Cmd+K+ Cmd + O (MacOS); or use the File menu and select Open folder.\nSelect /scratch/iz89 to open your workspace. You can change this at any point by opening a new folder. Keep in mind you will be requested to provide your password each time, unless you have set up ssh keys between your local computer and Setonix.\nWhen prompted, select the box for Trust the authors of all files in the parent folder then click Yes, I trust the authors\nTo open a terminal, type Ctrl+J (Windows) or Cmd+J (MacOS), or select Terminal from the top menu bar. The terminal will open at the bottom of the environment window. Note that you can have more than one terminal active within your VSCode environment; new terminals can be opened by selecting the + icon in the top right corner of the terminal.\n\n\nTips for using VSCode\n\nFollow these instructions to prevent VSCode hidden files from consuming your /home quota\nVS code cheatsheet for Windows\nVS code cheatsheet for MacOS",
+    "text": "Connection with ssh\nConnection to Setonix is via ssh. To connect with ssh, you will need to use a terminal application or integrated development environment (IDE) on your local computer.\n\nConnecting with X11 forwarding\nIf you need to use graphical interfaces on Setonix, please follow Pawsey’s instructions on how to use ssh with X11 forwarding.\n\n\n\n\n\n\nNote\n\n\n\nPlease note that this is for lightweight GUIs only. For intensive visualisation tasks, for example those requiring large RAM or GPUs, please use Pawsey’s dedidcated visualisation services.\n\n\n\n\nConnecting with a terminal application\nThe Setonix user guide How to log onto Setonix page has step by step instructions for logging on with a number of commonly used terminal clients:\n\nMac or Linux native terminal\nMobaXTerm on Windows\nPutty on Windows\n\n\n\nConnecting with VSCode IDE\nVSCode is a popular and user friendly interface allowing you to log on to a machine as well as providing advanced code editing extensions.\nHowever, there are some drawbacks to using VSCode on HPC, and these drawbacks - along with the required solutions - are detailed here.\n\n\n\n\n\n\nImportant\n\n\n\nIf you use VSCode to work on Setonix, please carefully read and adhere to this Pawsey VSCode page\n\n\nInstall VSCode and connect to Setonix\n\nDownload Visual Studio Code for your system from here and follow the instructions for:\n\nmacOS\nWindows\n\nOpen the VS Code application on your computer\n\n\n\nClick on the extensions button (four blocks) on the left side bar and install the remote SSH extension. Click on the blue install button.\n\n\nAdd the Setonix host details to your .ssh config file:\nHost Setonix\n  HostName pawsey.setonix.org.au\n  User &lt;your-pawsey-username&gt;\n\nType Ctrl+Shift+P (Cmd+Shift+P for Mac) and select Remote-SSH: Connect to Host and Pawsey\nWhen prompted, select Linux as the platform of the remote host from the dropdown menu\nType in your Pawsey password and hit enter\n\nHaving successfully logged in, you should see a small blue or green box in the bottom left corner of your screen:\n\nSet up your VSCode window\n\nOpen a new folder in the file explorer panel on the left side of the screen. You can do this by typing Ctrl + K, Ctrl + O (Windows) or Cmd+K+ Cmd + O (MacOS); or use the File menu and select Open folder.\nEnter the path to /scratch/&lt;pawsey-project-id&gt; to open your workspace. You can change this at any point by opening a new folder. Keep in mind you will be requested to provide your password each time, unless you have set up ssh keys between your local computer and Setonix.\nWhen prompted, select the box for Trust the authors of all files in the parent folder then click Yes, I trust the authors\nTo open a terminal, type Ctrl+J (Windows) or Cmd+J (MacOS), or select Terminal from the top menu bar. The terminal will open at the bottom of the environment window. Note that you can have more than one terminal active within your VSCode environment; new terminals can be opened by selecting the + icon in the top right corner of the terminal.\n\n\nTips for using VSCode\n\nFollow these instructions to prevent VSCode hidden files from consuming your /home quota\nVS code cheatsheet for Windows\nVS code cheatsheet for MacOS",
     "crumbs": [
       "Working on Setonix",
       "Logging on"
@@ -180,7 +191,62 @@
     "href": "notebooks/setonix_filesystems.html",
     "title": "Filesystems and data management",
     "section": "",
-    "text": "TBC\n\nSetonix filesystems\nSetonix data management\nAcacia user guide\nmunlink https://pawsey.atlassian.net/wiki/spaces/US/pages/51925900/Deleting+Large+Numbers+of+Files+on+Lustre+Filesystems\ndata storage options - https://pawsey.atlassian.net/wiki/spaces/US/pages/51924796/Data+Services",
+    "text": "There are four main filesystems to be familiar with on Pawsey. Acacia is cloud object storage while the other three form part of the Setonix physical disk space:",
+    "crumbs": [
+      "Working on Setonix",
+      "Setonix filesystems"
+    ]
+  },
+  {
+    "objectID": "notebooks/setonix_filesystems.html#home",
+    "href": "notebooks/setonix_filesystems.html#home",
+    "title": "Filesystems and data management",
+    "section": "/home",
+    "text": "/home\nUSyd users familiar with Artemis and/or NCI Gadi may be accustomed to the 10 GB /home quota per user. The more stringent hard limit of 1 GB per user is more than offset by the 100 GB persistent storage per user provided on Acacia and the 256 GB per project space on /software.\nUse of /home should be restricted to configuration files and ssh keys. Workflow scripts, self-installed tools, singularity containers, R packages etc will quickly exceed the /home quota. These should be stored on /software/&lt;pawsey-project-id&gt;. Input and output files should make appropraite use of /scratch and Acacia.\n\n\n\n\n\n\nTip\n\n\n\nRegularly check for and clean unneeded files from /home which may be generated by software as temporary or cache files. These are often stored in hidden directories (their name starts with a dot). VSCode and R packages are common culprits!",
+    "crumbs": [
+      "Working on Setonix",
+      "Setonix filesystems"
+    ]
+  },
+  {
+    "objectID": "notebooks/setonix_filesystems.html#scratch",
+    "href": "notebooks/setonix_filesystems.html#scratch",
+    "title": "Filesystems and data management",
+    "section": "/scratch/",
+    "text": "/scratch/\nPawsey has a generous upper limit of 1 petabyte (PB) per project on /scratch. To afford this, the file retention period on /scratch is 21 days. There is no quarantine period for files purged from /scratch so users are encouraged to actively incorporate data staging between /scratch and Acacia for their workflows and regularly backup to USyd RDS. Note that the 21 day count commences from when the file was last read or modified, not necessarily from when it was created.\n\n\n\n\n\n\nImportant\n\n\n\nDo not use touch to attempt to circumvent the Pawsey purge policy! This will degrade performance for all users and potentially result in your Pawsey access being revoked.\n\n\nPawsey encourages all users to actively manage their scratch utilisation through monitoring scratch usage and using munlink to remove large numbers of files from scratch rather than waiting for the purge policy to clean up for you. Active management of this shared finite resource ensures optimal performance of the filesystem, leading to faster execution times and a better experience for all users.",
+    "crumbs": [
+      "Working on Setonix",
+      "Setonix filesystems"
+    ]
+  },
+  {
+    "objectID": "notebooks/setonix_filesystems.html#software",
+    "href": "notebooks/setonix_filesystems.html#software",
+    "title": "Filesystems and data management",
+    "section": "/software",
+    "text": "/software\nPawsey has numerous tools installed globally as modules. Tools not globally available can be self-installed into /software/projects/&lt;pawsey-project-ID&gt;. By providing a dedicated space for custom tools, Pawsey is meeting a common need among HPC users: a space where all members of a project can store shared tools and workflow files, without being subjected to purge or isolated within a user’s /home.\nSoftware on Setonix will be covered in more detail in the Software section.",
+    "crumbs": [
+      "Working on Setonix",
+      "Setonix filesystems"
+    ]
+  },
+  {
+    "objectID": "notebooks/setonix_filesystems.html#acacia",
+    "href": "notebooks/setonix_filesystems.html#acacia",
+    "title": "Filesystems and data management",
+    "section": "Acacia",
+    "text": "Acacia\nAcacia is Pawsey’s warm tier object storage cluster. It is a performant and highly scalable resource, but differs from traditional filesystems by arranging data as objects in a bucket, rather than files in a folder hierarchy.\nEach user is provided with 100 GB of private Acacia storage, and each project with 1 TB. Pawsey will consider increases above 1 TB based on genuine need; please contact help@pawsey.org.au. For large and ongoing Acacia requirements, please contact SIH to discuss options.\nAcacia is not readable from or writable to by the compute nodes. This means that input data stored on Acacia must first be copied from (“staged”) to /scratch before being read by the compute job. Output that is written by the job to /scratch may also be staged back to Acacia. These events occur in different jobs, but can be easily connected through job dependencies following Pawsey’s template scripts for a staged workflow.\nAs an S3 bucket, Acacia provides the added benefits of sharing data with collaborators and mounting locally to expedite transfer between Pawsey and your local computer and/or USyd RDS. This will be covered in the section on data transfer.\nFor further information on using Acacia, please refer to Pawsey’s Acacia user guide.",
+    "crumbs": [
+      "Working on Setonix",
+      "Setonix filesystems"
+    ]
+  },
+  {
+    "objectID": "notebooks/setonix_filesystems.html#further-reading",
+    "href": "notebooks/setonix_filesystems.html#further-reading",
+    "title": "Filesystems and data management",
+    "section": "Further reading",
+    "text": "Further reading\n\nSetonix filesystems\nSetonix data management\nAcacia user guide\nUsing munlink to clean scratch\nData storage options",
     "crumbs": [
       "Working on Setonix",
       "Setonix filesystems"
@@ -346,7 +412,7 @@
     "href": "notebooks/software.html",
     "title": "Software",
     "section": "",
-    "text": "TBC\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51929054/Setonix+Software+Environment\n\nUsers can install tools into /software/projects/\nThere is a shared writable space at /software/projects/ for group-wide tools as well as per-user folders for personal use tools.",
+    "text": "TBC\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51929054/Setonix+Software+Environment\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51926046/Software+Stack\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925908/How+to+Install+Software\n\nUsers can install tools into /software/projects/\nThere is a shared writable space at /software/projects/ for group-wide tools as well as per-user folders for personal use tools.",
     "crumbs": [
       "Working on Setonix",
       "Software"
