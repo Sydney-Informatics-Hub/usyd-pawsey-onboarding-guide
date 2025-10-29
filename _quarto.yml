@@ -32,7 +32,7 @@ website:
           href: notebooks/admin.html          
         - text: "Logging on"
           href: notebooks/login.html        
-        - text: "Setonix filesystems"
+        - text: "Filesystems"
           href: notebooks/setonix_filesystems.html
         - text: "Data transfer"
           href: notebooks/data_transfer.html
