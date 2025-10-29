@@ -38,7 +38,7 @@ The Setonix user guide [How to log onto Setonix](https://pawsey.atlassian.net/wi
 - [MobaXTerm on Windows](https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix#HowtologintoSetonix-LoginwithMobaXTermonWindows)
 - [Putty on Windows](https://pawsey.atlassian.net/wiki/spaces/US/pages/51926034/How+to+log+into+Setonix#HowtologintoSetonix-LoginwithPuTTYonWindows)
 
-### Connecting with VSCode IDE
+### Connecting with VS Code IDE
 
 [VS Code](https://code.visualstudio.com/) is a popular and user friendly interface allowing you to log on to a machine as well as providing advanced code editing extensions. 
 
@@ -80,16 +80,16 @@ Having successfully logged in, you should see a small blue or green box in the b
 
 ![](../fig/pawsey-vscode-connect.png)
 
-**Set up your VSCode window**
+**Set up your VS Code window**
 
 1. Open a new folder in the file explorer panel on the left side of the screen. You can do this by typing `Ctrl` + `K`, `Ctrl` + `O` (Windows) or `Cmd`+`K`+ `Cmd` + `O` (macOS); or use the `File` menu and select `Open folder`. 
 2. Enter the path `/scratch/<pawsey-project-id>` to open your `/scratch` base working directory. You can change this at any point by opening a new folder. Keep in mind you will be requested to provide your password each time, unless you have [set up `ssh` keys between your local computer and Setonix](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925870/Use+of+SSH+Keys+for+Authentication). 
 2. When prompted, select the box for `Trust the authors of all files in the parent folder` then click `Yes, I trust the authors`
-3. To open a terminal, type `Ctrl`+`J` (Windows) or `Cmd`+`J` (macOS), or select `Terminal` from the top menu bar. The terminal will open at the bottom of the environment window. Note that you can have more than one terminal active within your VSCode environment; new terminals can be opened by selecting the `+` icon in the top right corner of the terminal. 
+3. To open a terminal, type `Ctrl`+`J` (Windows) or `Cmd`+`J` (macOS), or select `Terminal` from the top menu bar. The terminal will open at the bottom of the environment window. Note that you can have more than one terminal active within your VS Code environment; new terminals can be opened by selecting the `+` icon in the top right corner of the terminal. 
 
 ![](../fig/pawsey-vscode-window.png)
 
-**Tips for using VSCode**
+**Tips for using VS Code**
 
 * Follow [these instructions](https://pawsey.atlassian.net/wiki/spaces/US/pages/51931360/Visual+Studio+Code+for+Remote+Development) to prevent VS Code hidden files from consuming your `/home` quota
 * [VS Code cheatsheet for Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
