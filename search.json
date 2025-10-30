@@ -59,7 +59,73 @@
     "href": "notebooks/data_transfer.html",
     "title": "Data transfer",
     "section": "",
-    "text": "TBC\n\nAcacia user guide",
+    "text": "There are many tools for data transfer, both command-line and GUI-based, and the best method to use will depend on the size of your dataset, the connection between the two machines, and personal preference. In many cases, numerous methods could do an equally good job. This page provides a quickstart overview for some common data transfer tasks as a USyd researcher working on Pawsey.",
+    "crumbs": [
+      "Working on Setonix",
+      "Data transfer"
+    ]
+  },
+  {
+    "objectID": "notebooks/data_transfer.html#data-transfer-best-practices",
+    "href": "notebooks/data_transfer.html#data-transfer-best-practices",
+    "title": "Data transfer",
+    "section": "Data transfer best practices",
+    "text": "Data transfer best practices\n\nUse command line transfers for small datasets via the data mover nodes\nSubmit large transfers as a job on the copy partition\nUse resumable transfer commands for large transfers\nWhere possible, chunk large datasets (eg by folder or name pattern) and submit as separate jobs\nRegularly sync your important output to RDS to avoid the 21-day file purge\nArchive folders with numerous files with tar for faster, more efficient transfers\nUse Pawsey’s Acacia storage bucket as an intermediate path for increased speed\nKeep an eye out for announcements from SIH regarding Globus availability for fast, simplified data transfer\nAlways verify the integrity of transferred files, eg with md5 or sha-256 checksums\n\nRead on for guidance on applying some of these tips to your work on Pawsey!",
+    "crumbs": [
+      "Working on Setonix",
+      "Data transfer"
+    ]
+  },
+  {
+    "objectID": "notebooks/data_transfer.html#data-mover-nodes",
+    "href": "notebooks/data_transfer.html#data-mover-nodes",
+    "title": "Data transfer",
+    "section": "Data mover nodes",
+    "text": "Data mover nodes\nPawsey provides dedicated data-mover nodes. These should be used instead of the login nodes for any data transfers to, from, or within Pawsey filesystems to avoid overloading the login nodes.\nThe hostname for these nodes is data-mover.pawsey.org.au.\nUsers can transfer over these nodes via the copy partition, connect to the data mover nodes over ssh, as well as transfer small datasets with command line transfer tools.",
+    "crumbs": [
+      "Working on Setonix",
+      "Data transfer"
+    ]
+  },
+  {
+    "objectID": "notebooks/data_transfer.html#transferring-small-datasets-via-command-line",
+    "href": "notebooks/data_transfer.html#transferring-small-datasets-via-command-line",
+    "title": "Data transfer",
+    "section": "Transferring small datasets via command line",
+    "text": "Transferring small datasets via command line\nTo connect to a data mover node:\nssh &lt;user&gt;@data-mover.pawsey.org.au\nFrom here, users can…\nsftp..\nTo copy a single file to Pawsey:\nscp in.csv &lt;user&gt;@data-mover.pawsey.org.au:/scratch/&lt;pawsey-project-id&gt;/&lt;user&gt;\nTo sync a folder from Pawsey to local machine:\n\n\n\n\n\n\n\nNote\n\n\n\nVisit Pawsey’s file transfer guide for detailed instructions and recommended flags for scp, rsync, and sftp command-line transfers.",
+    "crumbs": [
+      "Working on Setonix",
+      "Data transfer"
+    ]
+  },
+  {
+    "objectID": "notebooks/data_transfer.html#transferring-large-datasets-via-the-copy-partition",
+    "href": "notebooks/data_transfer.html#transferring-large-datasets-via-the-copy-partition",
+    "title": "Data transfer",
+    "section": "Transferring large datasets via the copy partition",
+    "text": "Transferring large datasets via the copy partition\nThe copy partition has 7 data mover nodes dedicated to data transfer. By submitting your data transfer to the copy partition on Setonix, your transfers can run on the data mover nodes for up to 48 hours, leaving your terminal free for other work or for you to power down your machine. By using a resumable method of transfer on the copy nodes, you can transfer extremely large datasets reliably and with minimal effort.\n\nSet up ssh keys\nIn order to run data transfers via copy partition, you will first need to set up ssh keys between Setonix and the other machine.\nFollow Pawsey’s guide to set up your keys.\n\n\n\n\n\n\nTip\n\n\n\nRemember to set up keys between Pawsey and all machines you have data, for example your local computer, RDS, and other workstations/compute environments.\n\n\n\n\nSLURM data transfer script\nThe required scheduler option is\n\n#SBATCH --partition=copy\n\n\nTransferring between RDS and Pawsey\nThis section includes examples to transfer between RDS and Pawsey via the copy partition. To transfer small datasets on the command line with scp, rsync, or sftp, please follow the instructions provided by Pawsey.\n\nTest a transfer from RDS to scratch\n\n\nwith Pawsey copyq\nwith sftp from RDS-int\n\nTest 1: 30 GB - /rds/PRJ-Tammen/ovine/Oar_rambouillet_v2.0/Bwa_bams/Y3409-CVS.coordSorted.dedup.bam\nTest 2: 119 GB - /rds/PRJ-Tammen/bovine/Alignments/Hereford/Y0555/H7HK3ALXX_2_161201_FR07935820_Other__R_161201_IMKTAM_RAMADNA_M001_Y0555.dedup.bam\n\nTest the same transfer from RDS to Acacia then to scratch",
+    "crumbs": [
+      "Working on Setonix",
+      "Data transfer"
+    ]
+  },
+  {
+    "objectID": "notebooks/data_transfer.html#troubleshotting",
+    "href": "notebooks/data_transfer.html#troubleshotting",
+    "title": "Data transfer",
+    "section": "Troubleshotting",
+    "text": "Troubleshotting\n\nrsync error\nError:\nWARNING: LMOD_CUSTOM_COMPILER_GNU_12_0_PREFIX is set to a path value that does\nnot exist on this system. The non-existent path\n/software/projects/pawsey1205/cwil/setonix/2025.08/modules/zen2/gcc/14.2.0 was\nnot added to MODULEPATH.\nrsync: argc is zero!\nrsync error: syntax or usage error (code 1) at main.c(1856) [server=3.2.7]\nrsync: connection unexpectedly closed (0 bytes received so far) [sender]\nrsync error: error in rsync protocol data stream (code 12) at io.c(232) [sender=3.4.1]\nCaused by: a non-existent path in environment variable LMOD_CUSTOM_COMPILER_GNU_12_0_PREFIX",
+    "crumbs": [
+      "Working on Setonix",
+      "Data transfer"
+    ]
+  },
+  {
+    "objectID": "notebooks/data_transfer.html#further-reading",
+    "href": "notebooks/data_transfer.html#further-reading",
+    "title": "Data transfer",
+    "section": "Further reading",
+    "text": "Further reading\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925856/Transferring+Files\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925882/Transferring+Files+in+out+Pawsey+Filesystems\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"

@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -328,8 +363,27 @@ cookieconsent.run({
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-transfer-best-practices" id="toc-data-transfer-best-practices" class="nav-link active" data-scroll-target="#data-transfer-best-practices">Data transfer best practices</a></li>
+  <li><a href="#data-mover-nodes" id="toc-data-mover-nodes" class="nav-link" data-scroll-target="#data-mover-nodes">Data mover nodes</a></li>
+  <li><a href="#transferring-small-datasets-via-command-line" id="toc-transferring-small-datasets-via-command-line" class="nav-link" data-scroll-target="#transferring-small-datasets-via-command-line">Transferring small datasets via command line</a></li>
+  <li><a href="#transferring-large-datasets-via-the-copy-partition" id="toc-transferring-large-datasets-via-the-copy-partition" class="nav-link" data-scroll-target="#transferring-large-datasets-via-the-copy-partition">Transferring large datasets via the copy partition</a>
+  <ul class="collapse">
+  <li><a href="#set-up-ssh-keys" id="toc-set-up-ssh-keys" class="nav-link" data-scroll-target="#set-up-ssh-keys">Set up ssh keys</a></li>
+  <li><a href="#slurm-data-transfer-script" id="toc-slurm-data-transfer-script" class="nav-link" data-scroll-target="#slurm-data-transfer-script">SLURM data transfer script</a></li>
+  <li><a href="#transferring-between-rds-and-pawsey" id="toc-transferring-between-rds-and-pawsey" class="nav-link" data-scroll-target="#transferring-between-rds-and-pawsey">Transferring between RDS and Pawsey</a></li>
+  </ul></li>
+  <li><a href="#troubleshotting" id="toc-troubleshotting" class="nav-link" data-scroll-target="#troubleshotting">Troubleshotting</a>
+  <ul class="collapse">
+  <li><a href="#rsync-error" id="toc-rsync-error" class="nav-link" data-scroll-target="#rsync-error">rsync error</a></li>
+  </ul></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -353,12 +407,123 @@ cookieconsent.run({
 </header>
 
 
-<p><strong>TBC</strong></p>
+<p>There are many tools for data transfer, both command-line and GUI-based, and the best method to use will depend on the size of your dataset, the connection between the two machines, and personal preference. In many cases, numerous methods could do an equally good job. This page provides a quickstart overview for some common data transfer tasks as a USyd researcher working on Pawsey.</p>
+<section id="data-transfer-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="data-transfer-best-practices">Data transfer best practices</h2>
 <ul>
-<li><a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide">Acacia user guide</a></li>
+<li>Use command line transfers for small datasets via the data mover nodes</li>
+<li>Submit large transfers as a job on the <code>copy</code> partition</li>
+<li>Use resumable transfer commands for large transfers</li>
+<li>Where possible, chunk large datasets (eg by folder or name pattern) and submit as separate jobs</li>
+<li>Regularly sync your important output to RDS to avoid the 21-day file purge</li>
+<li>Archive folders with numerous files with <code>tar</code> for faster, more efficient transfers</li>
+<li>Use Pawsey’s Acacia storage bucket as an intermediate path for increased speed</li>
+<li>Keep an eye out for announcements from SIH regarding Globus availability for fast, simplified data transfer</li>
+<li>Always verify the integrity of transferred files, eg with <code>md5</code> or <code>sha-256</code> checksums</li>
+</ul>
+<p>Read on for guidance on applying some of these tips to your work on Pawsey!</p>
+</section>
+<section id="data-mover-nodes" class="level2">
+<h2 class="anchored" data-anchor-id="data-mover-nodes">Data mover nodes</h2>
+<p>Pawsey provides dedicated data-mover nodes. These should be used instead of the login nodes for any data transfers to, from, or within Pawsey filesystems to avoid overloading the login nodes.</p>
+<p>The hostname for these nodes is <code>data-mover.pawsey.org.au</code>.</p>
+<p>Users can transfer over these nodes via the <code>copy</code> partition, connect to the data mover nodes over <code>ssh</code>, as well as transfer small datasets with command line transfer tools.</p>
+</section>
+<section id="transferring-small-datasets-via-command-line" class="level2">
+<h2 class="anchored" data-anchor-id="transferring-small-datasets-via-command-line">Transferring small datasets via command line</h2>
+<p>To connect to a data mover node:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@data-mover.pawsey.org.au</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>From here, users can…</p>
+<p>sftp..</p>
+<p>To copy a single file to Pawsey:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> in.csv <span class="op">&lt;</span>user<span class="op">&gt;</span>@data-mover.pawsey.org.au:/scratch/<span class="op">&lt;</span>pawsey-project-id<span class="op">&gt;</span>/<span class="op">&lt;</span>user<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To sync a folder from Pawsey to local machine:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Visit Pawsey’s <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925882/Transferring+Files+in+out+Pawsey+Filesystems">file transfer guide</a> for detailed instructions and recommended flags for <code>scp</code>, <code>rsync</code>, and <code>sftp</code> command-line transfers.</p>
+</div>
+</div>
+</section>
+<section id="transferring-large-datasets-via-the-copy-partition" class="level2">
+<h2 class="anchored" data-anchor-id="transferring-large-datasets-via-the-copy-partition">Transferring large datasets via the copy partition</h2>
+<p>The <code>copy</code> partition has 7 data mover nodes dedicated to data transfer. By submitting your data transfer to the <code>copy</code> partition on Setonix, your transfers can run on the data mover nodes for up to 48 hours, leaving your terminal free for other work or for you to power down your machine. By using a resumable method of transfer on the <code>copy</code> nodes, you can transfer extremely large datasets reliably and with minimal effort.</p>
+<section id="set-up-ssh-keys" class="level3">
+<h3 class="anchored" data-anchor-id="set-up-ssh-keys">Set up ssh keys</h3>
+<p>In order to run data transfers via <code>copy</code> partition, you will first need to set up <code>ssh</code> keys between Setonix and the other machine.</p>
+<p><strong>Follow Pawsey’s <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925870/Use+of+SSH+Keys+for+Authentication">guide</a> to set up your keys.</strong></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember to set up keys between Pawsey and all machines you have data, for example your local computer, RDS, and other workstations/compute environments.</p>
+</div>
+</div>
+</section>
+<section id="slurm-data-transfer-script" class="level3">
+<h3 class="anchored" data-anchor-id="slurm-data-transfer-script">SLURM data transfer script</h3>
+<p>The required scheduler option is</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --partition=copy</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="transferring-between-rds-and-pawsey" class="level3">
+<h3 class="anchored" data-anchor-id="transferring-between-rds-and-pawsey">Transferring between RDS and Pawsey</h3>
+<p>This section includes examples to transfer between RDS and Pawsey via the <code>copy</code> partition. To transfer small datasets on the command line with <code>scp</code>, <code>rsync</code>, or <code>sftp</code>, please follow the <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925882/Transferring+Files+in+out+Pawsey+Filesystems">instructions</a> provided by Pawsey.</p>
+<ol type="1">
+<li>Test a transfer from RDS to scratch</li>
+</ol>
+<ul>
+<li>with Pawsey copyq</li>
+<li>with sftp from RDS-int</li>
+</ul>
+<p>Test 1: 30 GB - /rds/PRJ-Tammen/ovine/Oar_rambouillet_v2.0/Bwa_bams/Y3409-CVS.coordSorted.dedup.bam</p>
+<p>Test 2: 119 GB - /rds/PRJ-Tammen/bovine/Alignments/Hereford/Y0555/H7HK3ALXX_2_161201_FR07935820_Other__R_161201_IMKTAM_RAMADNA_M001_Y0555.dedup.bam</p>
+<ol start="2" type="1">
+<li>Test the same transfer from RDS to Acacia then to scratch</li>
+</ol>
+</section>
+</section>
+<section id="troubleshotting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshotting">Troubleshotting</h2>
+<section id="rsync-error" class="level3">
+<h3 class="anchored" data-anchor-id="rsync-error">rsync error</h3>
+<p>Error:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">WARNING:</span> LMOD_CUSTOM_COMPILER_GNU_12_0_PREFIX is set to a path value that does</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">not</span> exist on this system. The non-existent path</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/software/projects/pawsey1205/cwil/setonix/2025.08/modules/zen2/gcc/14.2.0</span> was</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">not</span> added to MODULEPATH.</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">rsync:</span> argc is zero!</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> error: syntax or usage error <span class="er">(</span><span class="ex">code</span> 1<span class="kw">)</span> <span class="ex">at</span> main.c<span class="er">(</span><span class="ex">1856</span><span class="kw">)</span> <span class="ex">[server=3.2.7]</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">rsync:</span> connection unexpectedly closed <span class="er">(</span><span class="ex">0</span> bytes received so far<span class="kw">)</span> <span class="ex">[sender]</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> error: error in rsync protocol data stream <span class="er">(</span><span class="ex">code</span> 12<span class="kw">)</span> <span class="ex">at</span> io.c<span class="er">(</span><span class="ex">232</span><span class="kw">)</span> <span class="ex">[sender=3.4.1]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Caused by: a non-existent path in environment variable LMOD_CUSTOM_COMPILER_GNU_12_0_PREFIX</p>
+</section>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51925856/Transferring+Files</li>
+<li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51925882/Transferring+Files+in+out+Pawsey+Filesystems</li>
+<li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide</li>
+<li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects</li>
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
