@@ -8,24 +8,57 @@ from: markdown+emoji
 ---
 
 
-**TBC**
+<span style="color:DarkRed;">**THIS PAGE IS UNDER DEVELOPMENT**</span>
 
-- QoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service 
-- Service unit calculator: https://pawseysc.github.io/su-calculator/ 
-- munlink https://pawsey.atlassian.net/wiki/x/jFMYAw 
+<br>
 
-
-
-You can check your usage of the /scratch filesystem in terms of number of files and kilobytes. Run the following command:
-
-    $ lfs quota /scratch
+## Service units
 
 
+- [Service units explained](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929028/Setonix+General+Information#Accounting)
+- [Service unit calculator](https://pawseysc.github.io/su-calculator/)
+- [QoS](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service)
+
+## Project accounting
+
+- [Project accounting](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925964/Job+Scheduling#JobScheduling-Projectaccounting)
+
+Allocation usage:
+
+```bash
+pawseyAccountBalance -p <pawsey-project> 
+```
+
+By user:
+
+```bash
+pawseyAccountBalance -p <pawsey-project> -user
+```
+
+Include GPU allocation:
+
+```bash
+pawseyAccountBalance -p <pawsey-project>-gpu
+```
+
+
+
+## Disk usage 
+
+Check usage on `/scratch`:
+
+```bash
+lfs quota /scratch
+```
+
+Check on `/home`: 
+```bash
 quota -s -f /home
+```
 
 
-https://pawsey.atlassian.net/wiki/spaces/US/pages/51925880/Filesystem+Policies#Best-practices
-
-we recommend not setting the stripping explicitly. For this, check Progressive File Layout (PFL) and File Striping.
+## iNodes
 
 The /scratch filesystem is a shared resource that suffers low performance when the number of files increases too much. Users should actively remove their files if no longer in use, rather than waiting for the system to delete them. For this, check Deleting Large Numbers of Files on Lustre Filesystems.
+
+[Use of munlink for deleting large numbers of files from `scratch`](https://pawsey.atlassian.net/wiki/x/jFMYAw)

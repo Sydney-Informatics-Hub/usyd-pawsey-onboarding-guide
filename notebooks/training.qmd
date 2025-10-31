@@ -7,9 +7,6 @@ output:
 from: markdown+emoji
 ---
 
-**TBC**
-
-
 ## Live Pawsey Information Session
 
 **31 st October 2025 2-3pm (online)**  

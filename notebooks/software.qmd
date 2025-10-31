@@ -7,8 +7,9 @@ output:
 from: markdown+emoji
 ---
 
+<span style="color:DarkRed;">**THIS PAGE IS UNDER DEVELOPMENT**</span>
 
-**TBC**
+<br>
 
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929054/Setonix+Software+Environment
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules
@@ -16,9 +17,16 @@ from: markdown+emoji
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51925908/How+to+Install+Software 
 - https://pawsey.atlassian.net/wiki/spaces/US/pages/51925886/Spack 
 
-Users can install tools into /software/projects/<pawsey project ID>
 
-There is a shared writable space at /software/projects/<pawsey project ID> for group-wide tools as well as per-user folders for personal use tools. 
+
+## Modules
+
+Please review the Pawsey [Modules page](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules) for more details. 
+
+On Pawsey, modules should be loaded with their full version, eg `module load spack/0.23.1`.
+
+Pawsey has numerous tools installed globally as [`modules`](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules). USyd users may be well acquainted with `module` commands from their use of Artemis and/or NCI Gadi HPC. Please review the Pawsey [Modules page] for more details. 
+
 
 ## Install tools with Spack 
 
@@ -26,50 +34,4 @@ https://pawsey.atlassian.net/wiki/spaces/US/pages/51925886/Spack
 
 module load spack/0.23.1
 
-
-/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo
-
-## Tips
-
-1. Problem: Spack commands result in error because my $PAWSEY_PROJECT environment variable is set to the wrong project:
-```bash
-
- Warning: Failed to initialize repository: '/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'.
-  No repo.yaml found in '/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'
-To remove the bad repository, run this command:
-      spack repo rm /software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo
-cwil@setonix-01:~>  spack repo rm /software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo
-==> Error: No repository with path or namespace: /software/projects/pawsey0545/cwil/setonix/2025.08/spack_repo
-```
-Solution: 
-
-```bash
-cwil@setonix-01:~> ls /scratch/pawsey0545
-ls: cannot access '/scratch/pawsey0545': No such file or directory
-cwil@setonix-01:~> cat ~/.pawsey_project
-pawsey0545
-cwil@setonix-01:~> sed -i 's/0545/1205/' ~/.pawsey_project
-cwil@setonix-01:~> cat ~/.pawsey_project
-pawsey1205
-```
-
-
-
-
-
-
-
-
-
-Please review the Pawsey [Modules page](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules) for more details. 
-
-Compared to Artemis and Gadi
-
-On Pawsey, modules should be loaded with their full version, eg `module load spack/0.23.1`. Failure to 
-
-
-
-
-Pawsey has numerous tools installed globally as [`modules`](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules). USyd users may be well acquainted with `module` commands from their use of Artemis and/or NCI Gadi HPC. Please review the Pawsey [Modules page] for more details. 
-
-Tools not globally available can be self-installed
+Tools not globally available can be self-installed into `/software/projects/$PAWSEY_PROJECT/`
