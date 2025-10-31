@@ -37,7 +37,51 @@
     "href": "notebooks/accounting.html",
     "title": "Resource accounting",
     "section": "",
-    "text": "TBC\n\nQoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service\nService unit calculator: https://pawseysc.github.io/su-calculator/\nmunlink https://pawsey.atlassian.net/wiki/x/jFMYAw\n\nYou can check your usage of the /scratch filesystem in terms of number of files and kilobytes. Run the following command:\n$ lfs quota /scratch\nquota -s -f /home\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925880/Filesystem+Policies#Best-practices\nwe recommend not setting the stripping explicitly. For this, check Progressive File Layout (PFL) and File Striping.\nThe /scratch filesystem is a shared resource that suffers low performance when the number of files increases too much. Users should actively remove their files if no longer in use, rather than waiting for the system to delete them. For this, check Deleting Large Numbers of Files on Lustre Filesystems.",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT",
+    "crumbs": [
+      "Working on Setonix",
+      "Resource accounting"
+    ]
+  },
+  {
+    "objectID": "notebooks/accounting.html#service-units",
+    "href": "notebooks/accounting.html#service-units",
+    "title": "Resource accounting",
+    "section": "Service units",
+    "text": "Service units\n\nService units explained\nService unit calculator\nQoS",
+    "crumbs": [
+      "Working on Setonix",
+      "Resource accounting"
+    ]
+  },
+  {
+    "objectID": "notebooks/accounting.html#project-accounting",
+    "href": "notebooks/accounting.html#project-accounting",
+    "title": "Resource accounting",
+    "section": "Project accounting",
+    "text": "Project accounting\n\nProject accounting\n\nAllocation usage:\npawseyAccountBalance -p &lt;pawsey-project&gt; \nBy user:\npawseyAccountBalance -p &lt;pawsey-project&gt; -user\nInclude GPU allocation:\npawseyAccountBalance -p &lt;pawsey-project&gt;-gpu",
+    "crumbs": [
+      "Working on Setonix",
+      "Resource accounting"
+    ]
+  },
+  {
+    "objectID": "notebooks/accounting.html#disk-usage",
+    "href": "notebooks/accounting.html#disk-usage",
+    "title": "Resource accounting",
+    "section": "Disk usage",
+    "text": "Disk usage\nCheck usage on /scratch:\nlfs quota /scratch\nCheck on /home:\nquota -s -f /home",
+    "crumbs": [
+      "Working on Setonix",
+      "Resource accounting"
+    ]
+  },
+  {
+    "objectID": "notebooks/accounting.html#inodes",
+    "href": "notebooks/accounting.html#inodes",
+    "title": "Resource accounting",
+    "section": "iNodes",
+    "text": "iNodes\nThe /scratch filesystem is a shared resource that suffers low performance when the number of files increases too much. Users should actively remove their files if no longer in use, rather than waiting for the system to delete them. For this, check Deleting Large Numbers of Files on Lustre Filesystems.\nUse of munlink for deleting large numbers of files from scratch",
     "crumbs": [
       "Working on Setonix",
       "Resource accounting"
@@ -48,7 +92,18 @@
     "href": "notebooks/arrays.html",
     "title": "Job arrays",
     "section": "",
-    "text": "TBC\nUse job arrays for embarassingly parallel tasks.\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925946/Example+Workflows#ExampleWorkflows-Jobarrays",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT",
+    "crumbs": [
+      "Running a job",
+      "Job arrays"
+    ]
+  },
+  {
+    "objectID": "notebooks/arrays.html#job-arrays",
+    "href": "notebooks/arrays.html#job-arrays",
+    "title": "Job arrays",
+    "section": "Job arrays",
+    "text": "Job arrays\nUse job arrays for embarassingly parallel tasks.\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925946/Example+Workflows#ExampleWorkflows-Jobarrays",
     "crumbs": [
       "Running a job",
       "Job arrays"
@@ -59,7 +114,7 @@
     "href": "notebooks/data_transfer.html",
     "title": "Data transfer",
     "section": "",
-    "text": "There are many tools for data transfer, both command-line and GUI-based, and the best method to use will depend on the size of your dataset, the connection between the two machines, and personal preference. In many cases, numerous methods could do an equally good job. This page provides a quickstart overview for some common data transfer tasks as a USyd researcher working on Pawsey.",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT\nThere are many tools for data transfer, both command-line and GUI-based, and the best method to use will depend on the size of your dataset, the connection between the two machines, and personal preference. In many cases, numerous methods could do an equally good job. This page provides a quickstart overview for some common data transfer tasks as a USyd researcher working on Pawsey.",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"
@@ -70,7 +125,7 @@
     "href": "notebooks/data_transfer.html#data-transfer-best-practices",
     "title": "Data transfer",
     "section": "Data transfer best practices",
-    "text": "Data transfer best practices\n\nUse command line transfers for small datasets via the data mover nodes\nSubmit large transfers as a job on the copy partition\nUse resumable transfer commands for large transfers\nWhere possible, chunk large datasets (eg by folder or name pattern) and submit as separate jobs\nRegularly sync your important output to RDS to avoid the 21-day file purge\nArchive folders with numerous files with tar for faster, more efficient transfers\nUse Pawsey’s Acacia storage bucket as an intermediate path for increased speed\nKeep an eye out for announcements from SIH regarding Globus availability for fast, simplified data transfer\nAlways verify the integrity of transferred files, eg with md5 or sha-256 checksums\n\nRead on for guidance on applying some of these tips to your work on Pawsey!",
+    "text": "Data transfer best practices\n\nUse command line transfers for small datasets via the data mover nodes\nSubmit large transfers as a job on the copy partition\nUse resumable transfer commands for large transfers\nWhere possible, chunk large datasets (eg by folder or name pattern) and submit as separate jobs\nRegularly sync your important output to RDS to avoid the 21-day file purge\nArchive folders with numerous files with tar for faster, more efficient transfers\nUse Pawsey’s Acacia storage bucket as an intermediate path for increased speed\nAlways verify the integrity of transferred files, eg with md5 or sha-256 checksums\nKeep an eye out for announcements from SIH regarding Globus availability for fast, simplified data transfer\n\nRead on for guidance on applying some of these tips to your work on Pawsey!",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"
@@ -81,7 +136,7 @@
     "href": "notebooks/data_transfer.html#data-mover-nodes",
     "title": "Data transfer",
     "section": "Data mover nodes",
-    "text": "Data mover nodes\nPawsey provides dedicated data-mover nodes. These should be used instead of the login nodes for any data transfers to, from, or within Pawsey filesystems to avoid overloading the login nodes.\nThe hostname for these nodes is data-mover.pawsey.org.au.\nUsers can transfer over these nodes via the copy partition, connect to the data mover nodes over ssh, as well as transfer small datasets with command line transfer tools.",
+    "text": "Data mover nodes\nPawsey provides dedicated data-mover nodes. These should be used instead of the login nodes for any data transfers to, from, or within Pawsey filesystems to avoid overloading the login nodes.\nThe hostname for these nodes is data-mover.pawsey.org.au.\nUsers can connect to the data mover nodes over ssh and transfer small datasets with command line transfer tools.",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"
@@ -92,7 +147,7 @@
     "href": "notebooks/data_transfer.html#transferring-small-datasets-via-command-line",
     "title": "Data transfer",
     "section": "Transferring small datasets via command line",
-    "text": "Transferring small datasets via command line\nTo connect to a data mover node:\nssh &lt;user&gt;@data-mover.pawsey.org.au\nFrom here, users can…\nsftp..\nTo copy a single file to Pawsey:\nscp in.csv &lt;user&gt;@data-mover.pawsey.org.au:/scratch/&lt;pawsey-project-id&gt;/&lt;user&gt;\nTo sync a folder from Pawsey to local machine:\n\n\n\n\n\n\n\nNote\n\n\n\nVisit Pawsey’s file transfer guide for detailed instructions and recommended flags for scp, rsync, and sftp command-line transfers.",
+    "text": "Transferring small datasets via command line\n\n\n\n\n\n\nNote\n\n\n\nVisit Pawsey’s file transfer guide for detailed instructions and recommended flags for scp, rsync, and sftp command-line transfers.\n\n\nBelow are some common usage scenarios to get you started.\n\nscp\nCopy a file from local to Pawsey\nscp &lt;file&gt; &lt;pawsey-user-id&gt;@data-mover.pawsey.org.au:/scratch/&lt;pawsey-project-id&gt;/&lt;pawsey-user-id&gt;\nCopy a file from Pawsey to local\nscp &lt;pawsey-user-id&gt;@data-mover.pawsey.org.au:&lt;pawsey-file-path&gt; &lt;local-destination-path&gt;\nCopy a file from Pawsey to remote\nssh &lt;pawsey-user-id&gt;@data-mover.pawsey.org.au\nscp &lt;pawsey-file&gt; &lt;remote-user&gt;@&lt;remote-host&gt;:&lt;remote-destination-path&gt;\n\n\nsftp\nCopy a file from local to Pawsey\nsftp &lt;pawsey-user-id&gt;@data-mover.pawsey.org.au\ncd /scratch/&lt;pawsey-project-id&gt;/&lt;pawsey-user-id&gt;\nput &lt;file&gt;\nCopy a file from Pawsey to local\nsftp &lt;pawsey-user-id&gt;@data-mover.pawsey.org.au\ncd /scratch/&lt;pawsey-project-id&gt;/&lt;pawsey-user-id&gt;\nget &lt;file&gt;\nCopy a folder from local to Pawsey\nsftp &lt;pawsey-user-id&gt;@data-mover.pawsey.org.au\ncd /scratch/&lt;pawsey-project-id&gt;/&lt;pawsey-user-id&gt;\nput -r ./&lt;folder&gt;\nCopy a folder from Pawsey to local\nsftp &lt;pawsey-user-id&gt;@data-mover.pawsey.org.au\ncd /scratch/&lt;pawsey-project-id&gt;/&lt;pawsey-user-id&gt;\nget -r &lt;folder&gt;\nCopy a folder from Pawsey to RDS\nUSyd network or VPN not required.\nsftp &lt;unikey&gt;@research-data-ext.sydney.edu.au\ncd /rds/PRJ-&lt;project&gt;\nput -r ./&lt;folder&gt;\n\n\nrsync\nCopy a folder from RDS to Pawsey\nMust be on USyd network or VPN on.\nssh &lt;unikey&gt;@research-data-int.sydney.edu.au\ncd /rds/PRJ-&lt;project&gt;/&lt;data-location&gt;\nrsync -vhsrl --chmod=Dg+s -e ssh &lt;folder&gt; &lt;user&gt;@data-mover.pawsey.org.au:/scratch/&lt;pawsey-project-id&gt;/&lt;user&gt;",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"
@@ -103,29 +158,29 @@
     "href": "notebooks/data_transfer.html#transferring-large-datasets-via-the-copy-partition",
     "title": "Data transfer",
     "section": "Transferring large datasets via the copy partition",
-    "text": "Transferring large datasets via the copy partition\nThe copy partition has 7 data mover nodes dedicated to data transfer. By submitting your data transfer to the copy partition on Setonix, your transfers can run on the data mover nodes for up to 48 hours, leaving your terminal free for other work or for you to power down your machine. By using a resumable method of transfer on the copy nodes, you can transfer extremely large datasets reliably and with minimal effort.\n\nSet up ssh keys\nIn order to run data transfers via copy partition, you will first need to set up ssh keys between Setonix and the other machine.\nFollow Pawsey’s guide to set up your keys.\n\n\n\n\n\n\nTip\n\n\n\nRemember to set up keys between Pawsey and all machines you have data, for example your local computer, RDS, and other workstations/compute environments.\n\n\n\n\nSLURM data transfer script\nThe required scheduler option is\n\n#SBATCH --partition=copy\n\n\nTransferring between RDS and Pawsey\nThis section includes examples to transfer between RDS and Pawsey via the copy partition. To transfer small datasets on the command line with scp, rsync, or sftp, please follow the instructions provided by Pawsey.\n\nTest a transfer from RDS to scratch\n\n\nwith Pawsey copyq\nwith sftp from RDS-int\n\nTest 1: 30 GB - /rds/PRJ-Tammen/ovine/Oar_rambouillet_v2.0/Bwa_bams/Y3409-CVS.coordSorted.dedup.bam\nTest 2: 119 GB - /rds/PRJ-Tammen/bovine/Alignments/Hereford/Y0555/H7HK3ALXX_2_161201_FR07935820_Other__R_161201_IMKTAM_RAMADNA_M001_Y0555.dedup.bam\n\nTest the same transfer from RDS to Acacia then to scratch",
+    "text": "Transferring large datasets via the copy partition\nThe copy partition has 7 data mover nodes dedicated to data transfer. By submitting your data transfer to the copy partition on Setonix, your transfers can run on the data mover nodes for up to 48 hours, leaving your terminal free for other work or for you to power down your machine.\nBy using a resumable method of transfer on the copy nodes, you can transfer extremely large datasets reliably and with minimal effort.\n\nSet up ssh keys\nIn order to run data transfers via copy partition, you will first need to set up ssh keys between Setonix and the other machine.\nFollow Pawsey’s guide to set up your keys.\n\n\n\n\n\n\nTip\n\n\n\nRemember to set up keys between Pawsey and all machines you have data, for example your local computer, RDS, and other workstations/compute environments.\n\n\n\n\nSLURM data transfer script\nTo be completed",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"
     ]
   },
   {
-    "objectID": "notebooks/data_transfer.html#troubleshotting",
-    "href": "notebooks/data_transfer.html#troubleshotting",
+    "objectID": "notebooks/data_transfer.html#transferring-between-rds-and-pawsey",
+    "href": "notebooks/data_transfer.html#transferring-between-rds-and-pawsey",
     "title": "Data transfer",
-    "section": "Troubleshotting",
-    "text": "Troubleshotting\n\nrsync error\nError:\nWARNING: LMOD_CUSTOM_COMPILER_GNU_12_0_PREFIX is set to a path value that does\nnot exist on this system. The non-existent path\n/software/projects/pawsey1205/cwil/setonix/2025.08/modules/zen2/gcc/14.2.0 was\nnot added to MODULEPATH.\nrsync: argc is zero!\nrsync error: syntax or usage error (code 1) at main.c(1856) [server=3.2.7]\nrsync: connection unexpectedly closed (0 bytes received so far) [sender]\nrsync error: error in rsync protocol data stream (code 12) at io.c(232) [sender=3.4.1]\nCaused by: a non-existent path in environment variable LMOD_CUSTOM_COMPILER_GNU_12_0_PREFIX",
+    "section": "Transferring between RDS and Pawsey",
+    "text": "Transferring between RDS and Pawsey\n\nSmall datasets\nCopy a folder from Pawsey to RDS\nUSyd network or VPN not required.\nsftp &lt;unikey&gt;@research-data-ext.sydney.edu.au\ncd /rds/PRJ-&lt;project&gt;\nput -r ./&lt;folder&gt;\nCopy a folder from RDS to Pawsey\nMust be on USyd network or VPN on.\nssh &lt;unikey&gt;@research-data-int.sydney.edu.au\ncd /rds/PRJ-&lt;project&gt;/&lt;data-location&gt;\nrsync -vhsrl --chmod=Dg+s -e ssh &lt;folder&gt; &lt;user&gt;@data-mover.pawsey.org.au:/scratch/&lt;pawsey-project-id&gt;/&lt;user&gt;\n\n\nLarge datasets\nThis section includes examples to transfer between RDS and Pawsey via the copy partition.\nTo be completed",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"
     ]
   },
   {
-    "objectID": "notebooks/data_transfer.html#further-reading",
-    "href": "notebooks/data_transfer.html#further-reading",
+    "objectID": "notebooks/data_transfer.html#transferring-data-into-and-out-of-acacia-object-storage",
+    "href": "notebooks/data_transfer.html#transferring-data-into-and-out-of-acacia-object-storage",
     "title": "Data transfer",
-    "section": "Further reading",
-    "text": "Further reading\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925856/Transferring+Files\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925882/Transferring+Files+in+out+Pawsey+Filesystems\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects",
+    "section": "Transferring data into and out of Acacia object storage",
+    "text": "Transferring data into and out of Acacia object storage\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects\n\nTo be completed",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"
@@ -310,9 +365,9 @@
   {
     "objectID": "notebooks/faq.html",
     "href": "notebooks/faq.html",
-    "title": "USyd Pawsey Setonix User Guide",
+    "title": "Frequently asked questions",
     "section": "",
-    "text": "https://pawsey.atlassian.net/wiki/spaces/US/pages/51925876/Pawsey+Filesystems+and+their+Use#PawseyFilesystemsandtheirUse-Whattodoifyouexceededyourquota",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT\n\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925876/Pawsey+Filesystems+and+their+Use#PawseyFilesystemsandtheirUse-Whattodoifyouexceededyourquota",
     "crumbs": [
       "Support and resources",
       "FAQs"
@@ -334,7 +389,7 @@
     "href": "notebooks/job_scripts.html",
     "title": "Job scripts and submission",
     "section": "",
-    "text": "TBC",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT",
     "crumbs": [
       "Running a job",
       "Job scripts and submission"
@@ -434,7 +489,7 @@
     "href": "notebooks/job_monitoring.html",
     "title": "Job monitoring",
     "section": "",
-    "text": "TBC\n\nhttp://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm#HowtoMigratefromPBSProtoSlurm-Displayingjobstatus:thesqueuecommand",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT\n\n\nhttp://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm#HowtoMigratefromPBSProtoSlurm-Displayingjobstatus:thesqueuecommand",
     "crumbs": [
       "Running a job",
       "Job monitoring"
@@ -478,7 +533,7 @@
     "href": "notebooks/benchmark.html",
     "title": "Optimising and benchmarking your job",
     "section": "",
-    "text": "TBC\n\nalso TBC: https://github.com/Sydney-Informatics-Hub/Pawsey-benchmarking\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51929062/Profiling+and+Optimising+on+Setonix",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT\n\n\nhttps://github.com/Sydney-Informatics-Hub/Pawsey-benchmarking\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51929062/Profiling+and+Optimising+on+Setonix",
     "crumbs": [
       "Running a job",
       "Benchmarking and efficiency"
@@ -489,7 +544,18 @@
     "href": "notebooks/software.html",
     "title": "Software",
     "section": "",
-    "text": "TBC\nUsers can install tools into /software/projects/\nThere is a shared writable space at /software/projects/ for group-wide tools as well as per-user folders for personal use tools.",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT",
+    "crumbs": [
+      "Working on Setonix",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "notebooks/software.html#modules",
+    "href": "notebooks/software.html#modules",
+    "title": "Software",
+    "section": "Modules",
+    "text": "Modules\nPlease review the Pawsey Modules page for more details.\nOn Pawsey, modules should be loaded with their full version, eg module load spack/0.23.1.\nPawsey has numerous tools installed globally as modules. USyd users may be well acquainted with module commands from their use of Artemis and/or NCI Gadi HPC. Please review the Pawsey [Modules page] for more details.",
     "crumbs": [
       "Working on Setonix",
       "Software"
@@ -500,18 +566,7 @@
     "href": "notebooks/software.html#install-tools-with-spack",
     "title": "Software",
     "section": "Install tools with Spack",
-    "text": "Install tools with Spack\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925886/Spack\nmodule load spack/0.23.1\n/software/projects/\\(PAWSEY_PROJECT/\\)USER/setonix/2025.08/spack_repo",
-    "crumbs": [
-      "Working on Setonix",
-      "Software"
-    ]
-  },
-  {
-    "objectID": "notebooks/software.html#tips",
-    "href": "notebooks/software.html#tips",
-    "title": "Software",
-    "section": "Tips",
-    "text": "Tips\n\nProblem: Spack commands result in error because my $PAWSEY_PROJECT environment variable is set to the wrong project:\n\n\n Warning: Failed to initialize repository: '/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'.\n  No repo.yaml found in '/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'\nTo remove the bad repository, run this command:\n      spack repo rm /software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo\ncwil@setonix-01:~&gt;  spack repo rm /software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo\n==&gt; Error: No repository with path or namespace: /software/projects/pawsey0545/cwil/setonix/2025.08/spack_repo\nSolution:\ncwil@setonix-01:~&gt; ls /scratch/pawsey0545\nls: cannot access '/scratch/pawsey0545': No such file or directory\ncwil@setonix-01:~&gt; cat ~/.pawsey_project\npawsey0545\ncwil@setonix-01:~&gt; sed -i 's/0545/1205/' ~/.pawsey_project\ncwil@setonix-01:~&gt; cat ~/.pawsey_project\npawsey1205\nPlease review the Pawsey Modules page for more details.\nCompared to Artemis and Gadi\nOn Pawsey, modules should be loaded with their full version, eg module load spack/0.23.1. Failure to\nPawsey has numerous tools installed globally as modules. USyd users may be well acquainted with module commands from their use of Artemis and/or NCI Gadi HPC. Please review the Pawsey [Modules page] for more details.\nTools not globally available can be self-installed",
+    "text": "Install tools with Spack\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51925886/Spack\nmodule load spack/0.23.1\nTools not globally available can be self-installed into /software/projects/$PAWSEY_PROJECT/",
     "crumbs": [
       "Working on Setonix",
       "Software"
@@ -522,7 +577,7 @@
     "href": "notebooks/training.html",
     "title": "Training",
     "section": "",
-    "text": "TBC",
+    "text": "31 st October 2025 2-3pm (online)\nRegistration and event details\nDelivered by Sydney Informatics Hub and Pawsey, this session will cover:\n\nAn overview of the research computing landscape at The University of Sydney, including the new initiative offering compute hours on Setonix\nAn introduction to Pawsey Supercomputing Research Centre and its national services\nHow to become an early adopter via our Expression of Interest (EOI) process",
     "crumbs": [
       "Support and resources",
       "Training"
@@ -532,8 +587,8 @@
     "objectID": "notebooks/training.html#live-pawsey-information-session",
     "href": "notebooks/training.html#live-pawsey-information-session",
     "title": "Training",
-    "section": "Live Pawsey Information Session",
-    "text": "Live Pawsey Information Session\n31 st October 2025 2-3pm (online)\nRegistration and event details\nDelivered by Sydney Informatics Hub and Pawsey, this session will cover:\n\nAn overview of the research computing landscape at The University of Sydney, including the new initiative offering compute hours on Setonix\nAn introduction to Pawsey Supercomputing Research Centre and its national services\nHow to become an early adopter via our Expression of Interest (EOI) process",
+    "section": "",
+    "text": "31 st October 2025 2-3pm (online)\nRegistration and event details\nDelivered by Sydney Informatics Hub and Pawsey, this session will cover:\n\nAn overview of the research computing landscape at The University of Sydney, including the new initiative offering compute hours on Setonix\nAn introduction to Pawsey Supercomputing Research Centre and its national services\nHow to become an early adopter via our Expression of Interest (EOI) process",
     "crumbs": [
       "Support and resources",
       "Training"
@@ -555,7 +610,7 @@
     "href": "notebooks/job_priority.html",
     "title": "Job priority",
     "section": "",
-    "text": "TBC\n\nQoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT\n\n\nQoS - https://pawsey.atlassian.net/wiki/spaces/US/pages/51929058/Running+Jobs+on+Setonix#Quality-of-Service",
     "crumbs": [
       "Running a job",
       "Job priority"
@@ -588,7 +643,7 @@
     "href": "notebooks/help.html",
     "title": "Where to get help",
     "section": "",
-    "text": "TBC\n\nPawsey support landing page\nSydney Scheme for national HPC access\nSydney Informatics Hub support request\nSydney Informatics Hub weekly research compute drop-ins, Wednesdays at 12 pm, zoom",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT\n\n\nPawsey support landing page\nSydney Scheme for national HPC access\nSydney Informatics Hub support request\nSydney Informatics Hub weekly research compute drop-ins, Wednesdays at 12 pm, zoom",
     "crumbs": [
       "Support and resources",
       "Where to get help"
@@ -599,7 +654,7 @@
     "href": "notebooks/walltime.html",
     "title": "Working within walltime",
     "section": "",
-    "text": "TBC",
+    "text": "THIS PAGE IS UNDER DEVELOPMENT",
     "crumbs": [
       "Running a job",
       "Working within walltime"

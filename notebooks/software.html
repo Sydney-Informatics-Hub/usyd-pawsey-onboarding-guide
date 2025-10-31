@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -134,35 +99,6 @@ cookieconsent.run({
 </script> 
   
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../lesson.css">
 <link rel="stylesheet" href="../bootstrap-icons.css">
@@ -397,8 +333,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-tools-with-spack" id="toc-install-tools-with-spack" class="nav-link active" data-scroll-target="#install-tools-with-spack">Install tools with Spack</a></li>
-  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
+  <li><a href="#modules" id="toc-modules" class="nav-link active" data-scroll-target="#modules">Modules</a></li>
+  <li><a href="#install-tools-with-spack" id="toc-install-tools-with-spack" class="nav-link" data-scroll-target="#install-tools-with-spack">Install tools with Spack</a></li>
   </ul>
 </nav>
     </div>
@@ -424,7 +360,8 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TBC</strong></p>
+<p><span style="color:DarkRed;"><strong>THIS PAGE IS UNDER DEVELOPMENT</strong></span></p>
+<p><br></p>
 <ul>
 <li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51929054/Setonix+Software+Environment</li>
 <li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules</li>
@@ -432,39 +369,17 @@ window.Quarto = {
 <li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51925908/How+to+Install+Software</li>
 <li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51925886/Spack</li>
 </ul>
-<p>Users can install tools into /software/projects/<pawsey project="" id=""></pawsey></p>
-<p>There is a shared writable space at /software/projects/<pawsey project="" id=""> for group-wide tools as well as per-user folders for personal use tools.</pawsey></p>
+<section id="modules" class="level2">
+<h2 class="anchored" data-anchor-id="modules">Modules</h2>
+<p>Please review the Pawsey <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules">Modules page</a> for more details.</p>
+<p>On Pawsey, modules should be loaded with their full version, eg <code>module load spack/0.23.1</code>.</p>
+<p>Pawsey has numerous tools installed globally as <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules"><code>modules</code></a>. USyd users may be well acquainted with <code>module</code> commands from their use of Artemis and/or NCI Gadi HPC. Please review the Pawsey [Modules page] for more details.</p>
+</section>
 <section id="install-tools-with-spack" class="level2">
 <h2 class="anchored" data-anchor-id="install-tools-with-spack">Install tools with Spack</h2>
 <p>https://pawsey.atlassian.net/wiki/spaces/US/pages/51925886/Spack</p>
 <p>module load spack/0.23.1</p>
-<p>/software/projects/<span class="math inline">\(PAWSEY_PROJECT/\)</span>USER/setonix/2025.08/spack_repo</p>
-</section>
-<section id="tips" class="level2">
-<h2 class="anchored" data-anchor-id="tips">Tips</h2>
-<ol type="1">
-<li>Problem: Spack commands result in error because my $PAWSEY_PROJECT environment variable is set to the wrong project:</li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">Warning:</span> Failed to initialize repository: <span class="st">'/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'</span>.</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">No</span> repo.yaml found in <span class="st">'/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> remove the bad repository, run this command:</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="ex">spack</span> repo rm /software/projects/<span class="va">$PAWSEY_PROJECT</span>/<span class="va">$USER</span>/setonix/2025.08/spack_repo</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">cwil@setonix-01:~</span><span class="op">&gt;</span>  spack repo rm /software/projects/<span class="va">$PAWSEY_PROJECT</span>/<span class="va">$USER</span>/setonix/2025.08/spack_repo</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">==</span><span class="op">&gt;</span> Error: No repository with path or namespace: /software/projects/pawsey0545/cwil/setonix/2025.08/spack_repo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Solution:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cwil@setonix-01:~</span><span class="op">&gt;</span> ls /scratch/pawsey0545</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ls:</span> cannot access <span class="st">'/scratch/pawsey0545'</span>: No such file or directory</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">cwil@setonix-01:~</span><span class="op">&gt;</span> cat ~/.pawsey_project</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pawsey0545</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">cwil@setonix-01:~</span><span class="op">&gt;</span> sed <span class="at">-i</span> <span class="st">'s/0545/1205/'</span> ~/.pawsey_project</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">cwil@setonix-01:~</span><span class="op">&gt;</span> cat ~/.pawsey_project</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">pawsey1205</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Please review the Pawsey <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules">Modules page</a> for more details.</p>
-<p>Compared to Artemis and Gadi</p>
-<p>On Pawsey, modules should be loaded with their full version, eg <code>module load spack/0.23.1</code>. Failure to</p>
-<p>Pawsey has numerous tools installed globally as <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51925906/Modules"><code>modules</code></a>. USyd users may be well acquainted with <code>module</code> commands from their use of Artemis and/or NCI Gadi HPC. Please review the Pawsey [Modules page] for more details.</p>
-<p>Tools not globally available can be self-installed</p>
+<p>Tools not globally available can be self-installed into <code>/software/projects/$PAWSEY_PROJECT/</code></p>
 
 
 </section>
