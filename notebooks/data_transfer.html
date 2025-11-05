@@ -376,17 +376,18 @@ cookieconsent.run({
   <li><a href="#sftp" id="toc-sftp" class="nav-link" data-scroll-target="#sftp"><code>sftp</code></a></li>
   <li><a href="#rsync" id="toc-rsync" class="nav-link" data-scroll-target="#rsync"><code>rsync</code></a></li>
   </ul></li>
+  <li><a href="#transferring-to-and-from-acacia-object-storage" id="toc-transferring-to-and-from-acacia-object-storage" class="nav-link" data-scroll-target="#transferring-to-and-from-acacia-object-storage">Transferring to and from Acacia object storage</a></li>
   <li><a href="#transferring-large-datasets-via-the-copy-partition" id="toc-transferring-large-datasets-via-the-copy-partition" class="nav-link" data-scroll-target="#transferring-large-datasets-via-the-copy-partition">Transferring large datasets via the copy partition</a>
   <ul class="collapse">
   <li><a href="#set-up-ssh-keys" id="toc-set-up-ssh-keys" class="nav-link" data-scroll-target="#set-up-ssh-keys">Set up ssh keys</a></li>
   <li><a href="#slurm-data-transfer-script" id="toc-slurm-data-transfer-script" class="nav-link" data-scroll-target="#slurm-data-transfer-script">SLURM data transfer script</a></li>
+  <li><a href="#slurm-data-transfer-script---s3" id="toc-slurm-data-transfer-script---s3" class="nav-link" data-scroll-target="#slurm-data-transfer-script---s3">SLURM data transfer script - S3</a></li>
   </ul></li>
   <li><a href="#transferring-between-rds-and-pawsey" id="toc-transferring-between-rds-and-pawsey" class="nav-link" data-scroll-target="#transferring-between-rds-and-pawsey">Transferring between RDS and Pawsey</a>
   <ul class="collapse">
   <li><a href="#small-datasets" id="toc-small-datasets" class="nav-link" data-scroll-target="#small-datasets">Small datasets</a></li>
   <li><a href="#large-datasets" id="toc-large-datasets" class="nav-link" data-scroll-target="#large-datasets">Large datasets</a></li>
   </ul></li>
-  <li><a href="#transferring-data-into-and-out-of-acacia-object-storage" id="toc-transferring-data-into-and-out-of-acacia-object-storage" class="nav-link" data-scroll-target="#transferring-data-into-and-out-of-acacia-object-storage">Transferring data into and out of Acacia object storage</a></li>
   </ul>
 </nav>
     </div>
@@ -495,6 +496,47 @@ Note
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> <span class="at">-vhsrl</span> <span class="at">--chmod</span><span class="op">=</span>Dg+s <span class="at">-e</span> ssh <span class="op">&lt;</span>folder<span class="op">&gt;</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@data-mover.pawsey.org.au:/scratch/<span class="op">&lt;</span>pawsey-project-id<span class="op">&gt;</span>/<span class="op">&lt;</span>user<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
+<section id="transferring-to-and-from-acacia-object-storage" class="level2">
+<h2 class="anchored" data-anchor-id="transferring-to-and-from-acacia-object-storage">Transferring to and from Acacia object storage</h2>
+<p>The quick-start instructions below are summarised from the <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide">Acacia user guide</a>.</p>
+<p><strong>Step 1. Create access keys</strong></p>
+<p>Log in to the Pawsey <code>Origin</code> portal and follow the <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client#ConfiguringandrunninganS3client-Authenticating">instructions to create Acacia access keys</a>. Note that separate keys are required per project storage (accessible to all members of the project) and per user storage (private to the user) on Acacia.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure you record your <code>Access ID</code> and <code>Secret Key</code>!</p>
+</div>
+</div>
+<p><strong>Step 2. Download S3 client application</strong></p>
+<p>Log on to Setonix, and load the modules below, after first checking which are the latest versions of the tools. Note that Setonix does not allow modules to be loaded without specifying a version.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail rclone</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail python</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail boto3</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load rclone/<span class="op">&lt;</span>latest-version<span class="op">&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python/<span class="op">&lt;</span>latest-version<span class="op">&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load boto3/<span class="op">&lt;</span>latest-version<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Download the Pawsey client with git, ideally to your <code>/software</code> storage. The environment variable <code>$MYSOFTWARE</code> expands to <code>/software/projects/&lt;pawsey-project-id&gt;/&lt;pawsey-user-id&gt;</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="va">$MYSOFTWARE</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://bitbucket.org/datapawsey/mfclient.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Step 3. Configure Rclone</strong></p>
+<p>Follow the <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client#ConfiguringandrunninganS3client-Rclone">instructions to configure Rclone</a> via <code>tee</code> command or direct text editing of your <code>$HOME/.config/rclone/rclone.conf</code> file to add your private <code>Access ID</code> and <code>Secret Key</code> generated at Step 1.</p>
+<ul>
+<li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide</li>
+<li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects</li>
+<li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client</li>
+</ul>
+<p><strong>Step 4. Add some test data to Acacia</strong></p>
+<p><strong>Step 5. Mount your Acacia bucket locally</strong></p>
+<p><span style="color:DarkRed;"><strong><em>To be completed</em></strong></span></p>
+</section>
 <section id="transferring-large-datasets-via-the-copy-partition" class="level2">
 <h2 class="anchored" data-anchor-id="transferring-large-datasets-via-the-copy-partition">Transferring large datasets via the copy partition</h2>
 <p>The <code>copy</code> partition has 7 data mover nodes dedicated to data transfer. By submitting your data transfer to the <code>copy</code> partition on Setonix, your transfers can run on the data mover nodes for up to 48 hours, leaving your terminal free for other work or for you to power down your machine.</p>
@@ -513,13 +555,18 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Remember to set up keys between Pawsey and all machines you have data, for example your local computer, RDS, and other workstations/compute environments.</p>
+<p>Remember to set up keys between Pawsey and all machines where you have data requiring transfer, for example your local computer, RDS, and other workstations/compute environments.</p>
 </div>
 </div>
 </section>
 <section id="slurm-data-transfer-script" class="level3">
 <h3 class="anchored" data-anchor-id="slurm-data-transfer-script">SLURM data transfer script</h3>
-<p><span style="color:DarkRed;"><em>To be completed</em></span></p>
+<p>Any of the command line examples shown above (<code>scp</code>, <code>sftp</code>, <code>rsync</code>) can be included within a SLURM job script to be submitted to the <code>copy</code> partition.</p>
+<p>Below is a script template for transferring a large dataset from Pawsey <code>/scratch</code> to USyd RDS:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="slurm-data-transfer-script---s3" class="level3">
+<h3 class="anchored" data-anchor-id="slurm-data-transfer-script---s3">SLURM data transfer script - S3</h3>
 </section>
 </section>
 <section id="transferring-between-rds-and-pawsey" class="level2">
@@ -528,30 +575,21 @@ Tip
 <h3 class="anchored" data-anchor-id="small-datasets">Small datasets</h3>
 <p><strong>Copy a folder from Pawsey to RDS</strong></p>
 <p>USyd network or VPN not required.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sftp</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@research-data-ext.sydney.edu.au</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /rds/PRJ-<span class="op">&lt;</span>project<span class="op">&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">put</span> <span class="at">-r</span> ./<span class="op">&lt;</span>folder<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sftp</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@research-data-ext.sydney.edu.au</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /rds/PRJ-<span class="op">&lt;</span>project<span class="op">&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">put</span> <span class="at">-r</span> ./<span class="op">&lt;</span>folder<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Copy a folder from RDS to Pawsey</strong></p>
 <p>Must be on USyd network or VPN on.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@research-data-int.sydney.edu.au</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /rds/PRJ-<span class="op">&lt;</span>project<span class="op">&gt;</span>/<span class="op">&lt;</span>data-location<span class="op">&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> <span class="at">-vhsrl</span> <span class="at">--chmod</span><span class="op">=</span>Dg+s <span class="at">-e</span> ssh <span class="op">&lt;</span>folder<span class="op">&gt;</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@data-mover.pawsey.org.au:/scratch/<span class="op">&lt;</span>pawsey-project-id<span class="op">&gt;</span>/<span class="op">&lt;</span>user<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@research-data-int.sydney.edu.au</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /rds/PRJ-<span class="op">&lt;</span>project<span class="op">&gt;</span>/<span class="op">&lt;</span>data-location<span class="op">&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> <span class="at">-vhsrl</span> <span class="at">--chmod</span><span class="op">=</span>Dg+s <span class="at">-e</span> ssh <span class="op">&lt;</span>folder<span class="op">&gt;</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@data-mover.pawsey.org.au:/scratch/<span class="op">&lt;</span>pawsey-project-id<span class="op">&gt;</span>/<span class="op">&lt;</span>user<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="large-datasets" class="level3">
 <h3 class="anchored" data-anchor-id="large-datasets">Large datasets</h3>
 <p>This section includes examples to transfer between RDS and Pawsey via the <code>copy</code> partition.</p>
-<p><span style="color:DarkRed;"><em>To be completed</em></span></p>
-</section>
-</section>
-<section id="transferring-data-into-and-out-of-acacia-object-storage" class="level2">
-<h2 class="anchored" data-anchor-id="transferring-data-into-and-out-of-acacia-object-storage">Transferring data into and out of Acacia object storage</h2>
-<ul>
-<li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide</li>
-<li>https://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects</li>
-</ul>
-<p><span style="color:DarkRed;"><em>To be completed</em></span></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

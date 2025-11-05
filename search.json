@@ -154,11 +154,22 @@
     ]
   },
   {
+    "objectID": "notebooks/data_transfer.html#transferring-to-and-from-acacia-object-storage",
+    "href": "notebooks/data_transfer.html#transferring-to-and-from-acacia-object-storage",
+    "title": "Data transfer",
+    "section": "Transferring to and from Acacia object storage",
+    "text": "Transferring to and from Acacia object storage\nThe quick-start instructions below are summarised from the Acacia user guide.\nStep 1. Create access keys\nLog in to the Pawsey Origin portal and follow the instructions to create Acacia access keys. Note that separate keys are required per project storage (accessible to all members of the project) and per user storage (private to the user) on Acacia.\n\n\n\n\n\n\nImportant\n\n\n\nMake sure you record your Access ID and Secret Key!\n\n\nStep 2. Download S3 client application\nLog on to Setonix, and load the modules below, after first checking which are the latest versions of the tools. Note that Setonix does not allow modules to be loaded without specifying a version.\nmodule avail rclone\nmodule avail python\nmodule avail boto3\n\nmodule load rclone/&lt;latest-version&gt;\nmodule load python/&lt;latest-version&gt;\nmodule load boto3/&lt;latest-version&gt;\nDownload the Pawsey client with git, ideally to your /software storage. The environment variable $MYSOFTWARE expands to /software/projects/&lt;pawsey-project-id&gt;/&lt;pawsey-user-id&gt;.\ncd $MYSOFTWARE\ngit clone https://bitbucket.org/datapawsey/mfclient.git\nStep 3. Configure Rclone\nFollow the instructions to configure Rclone via tee command or direct text editing of your $HOME/.config/rclone/rclone.conf file to add your private Access ID and Secret Key generated at Step 1.\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client\n\nStep 4. Add some test data to Acacia\nStep 5. Mount your Acacia bucket locally\nTo be completed",
+    "crumbs": [
+      "Working on Setonix",
+      "Data transfer"
+    ]
+  },
+  {
     "objectID": "notebooks/data_transfer.html#transferring-large-datasets-via-the-copy-partition",
     "href": "notebooks/data_transfer.html#transferring-large-datasets-via-the-copy-partition",
     "title": "Data transfer",
     "section": "Transferring large datasets via the copy partition",
-    "text": "Transferring large datasets via the copy partition\nThe copy partition has 7 data mover nodes dedicated to data transfer. By submitting your data transfer to the copy partition on Setonix, your transfers can run on the data mover nodes for up to 48 hours, leaving your terminal free for other work or for you to power down your machine.\nBy using a resumable method of transfer on the copy nodes, you can transfer extremely large datasets reliably and with minimal effort.\n\nSet up ssh keys\nIn order to run data transfers via copy partition, you will first need to set up ssh keys between Setonix and the other machine.\nFollow Pawsey’s guide to set up your keys.\n\n\n\n\n\n\nTip\n\n\n\nRemember to set up keys between Pawsey and all machines you have data, for example your local computer, RDS, and other workstations/compute environments.\n\n\n\n\nSLURM data transfer script\nTo be completed",
+    "text": "Transferring large datasets via the copy partition\nThe copy partition has 7 data mover nodes dedicated to data transfer. By submitting your data transfer to the copy partition on Setonix, your transfers can run on the data mover nodes for up to 48 hours, leaving your terminal free for other work or for you to power down your machine.\nBy using a resumable method of transfer on the copy nodes, you can transfer extremely large datasets reliably and with minimal effort.\n\nSet up ssh keys\nIn order to run data transfers via copy partition, you will first need to set up ssh keys between Setonix and the other machine.\nFollow Pawsey’s guide to set up your keys.\n\n\n\n\n\n\nTip\n\n\n\nRemember to set up keys between Pawsey and all machines where you have data requiring transfer, for example your local computer, RDS, and other workstations/compute environments.\n\n\n\n\nSLURM data transfer script\nAny of the command line examples shown above (scp, sftp, rsync) can be included within a SLURM job script to be submitted to the copy partition.\nBelow is a script template for transferring a large dataset from Pawsey /scratch to USyd RDS:\n\n\n\nSLURM data transfer script - S3",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"
@@ -169,18 +180,7 @@
     "href": "notebooks/data_transfer.html#transferring-between-rds-and-pawsey",
     "title": "Data transfer",
     "section": "Transferring between RDS and Pawsey",
-    "text": "Transferring between RDS and Pawsey\n\nSmall datasets\nCopy a folder from Pawsey to RDS\nUSyd network or VPN not required.\nsftp &lt;unikey&gt;@research-data-ext.sydney.edu.au\ncd /rds/PRJ-&lt;project&gt;\nput -r ./&lt;folder&gt;\nCopy a folder from RDS to Pawsey\nMust be on USyd network or VPN on.\nssh &lt;unikey&gt;@research-data-int.sydney.edu.au\ncd /rds/PRJ-&lt;project&gt;/&lt;data-location&gt;\nrsync -vhsrl --chmod=Dg+s -e ssh &lt;folder&gt; &lt;user&gt;@data-mover.pawsey.org.au:/scratch/&lt;pawsey-project-id&gt;/&lt;user&gt;\n\n\nLarge datasets\nThis section includes examples to transfer between RDS and Pawsey via the copy partition.\nTo be completed",
-    "crumbs": [
-      "Working on Setonix",
-      "Data transfer"
-    ]
-  },
-  {
-    "objectID": "notebooks/data_transfer.html#transferring-data-into-and-out-of-acacia-object-storage",
-    "href": "notebooks/data_transfer.html#transferring-data-into-and-out-of-acacia-object-storage",
-    "title": "Data transfer",
-    "section": "Transferring data into and out of Acacia object storage",
-    "text": "Transferring data into and out of Acacia object storage\n\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide\nhttps://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects\n\nTo be completed",
+    "text": "Transferring between RDS and Pawsey\n\nSmall datasets\nCopy a folder from Pawsey to RDS\nUSyd network or VPN not required.\nsftp &lt;unikey&gt;@research-data-ext.sydney.edu.au\ncd /rds/PRJ-&lt;project&gt;\nput -r ./&lt;folder&gt;\nCopy a folder from RDS to Pawsey\nMust be on USyd network or VPN on.\nssh &lt;unikey&gt;@research-data-int.sydney.edu.au\ncd /rds/PRJ-&lt;project&gt;/&lt;data-location&gt;\nrsync -vhsrl --chmod=Dg+s -e ssh &lt;folder&gt; &lt;user&gt;@data-mover.pawsey.org.au:/scratch/&lt;pawsey-project-id&gt;/&lt;user&gt;\n\n\nLarge datasets\nThis section includes examples to transfer between RDS and Pawsey via the copy partition.",
     "crumbs": [
       "Working on Setonix",
       "Data transfer"
