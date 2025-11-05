@@ -123,10 +123,56 @@ rsync -vhsrl --chmod=Dg+s -e ssh <folder> <user>@data-mover.pawsey.org.au:/scrat
 ```
 
 
+## Transferring to and from Acacia object storage
+
+The quick-start instructions below are summarised from the [Acacia user guide](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide). 
+
+**Step 1. Create access keys**
+
+Log in to the Pawsey `Origin` portal and follow the [instructions to create Acacia access keys](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client#ConfiguringandrunninganS3client-Authenticating). Note that separate keys are required per project storage (accessible to all members of the project) and per user storage (private to the user) on Acacia. 
 
 
+:::{.callout-important}
+Make sure you record your `Access ID` and `Secret Key`!
+:::
+
+**Step 2. Download S3 client application**
+
+Log on to Setonix, and load the modules below, after first checking which are the latest versions of the tools. Note that Setonix does not allow modules to be loaded without specifying a version. 
+
+```bash
+module avail rclone
+module avail python
+module avail boto3
+
+module load rclone/<latest-version>
+module load python/<latest-version>
+module load boto3/<latest-version>
+```
+
+Download the Pawsey client with git, ideally to your `/software` storage. The environment variable `$MYSOFTWARE` expands to `/software/projects/<pawsey-project-id>/<pawsey-user-id>`. 
+
+```bash
+cd $MYSOFTWARE
+git clone https://bitbucket.org/datapawsey/mfclient.git
+```
+
+**Step 3. Configure Rclone**
+
+Follow the [instructions to configure Rclone](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client#ConfiguringandrunninganS3client-Rclone) via `tee` command or direct text editing of your `$HOME/.config/rclone/rclone.conf` file to add your private `Access ID` and `Secret Key` generated at Step 1. 
 
 
+- https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide
+- https://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects
+- https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client 
+
+
+**Step 4. Add some test data to Acacia**
+
+
+**Step 5. Mount your Acacia bucket locally**
+
+<span style="color:DarkRed;">***To be completed***</span>
 
 ## Transferring large datasets via the copy partition
 
@@ -141,12 +187,23 @@ In order to run data transfers via `copy` partition, you will first need to set 
 **Follow Pawsey's [guide](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925870/Use+of+SSH+Keys+for+Authentication) to set up your keys.** 
 
 :::callout-tip
-Remember to set up keys between Pawsey and all machines you have data, for example your local computer, RDS, and other workstations/compute environments. 
+Remember to set up keys between Pawsey and all machines where you have data requiring transfer, for example your local computer, RDS, and other workstations/compute environments. 
 :::
 
 ### SLURM data transfer script 
 
-<span style="color:DarkRed;">*To be completed*</span>
+Any of the command line examples shown above (`scp`, `sftp`, `rsync`) can be included within a SLURM job script to be submitted to the `copy` partition. 
+
+Below is a script template for transferring a large dataset from Pawsey `/scratch` to USyd RDS: 
+
+```bash 
+
+```
+
+### SLURM data transfer script - S3 
+
+
+
 
 
 ## Transferring between RDS and Pawsey
@@ -177,11 +234,4 @@ rsync -vhsrl --chmod=Dg+s -e ssh <folder> <user>@data-mover.pawsey.org.au:/scrat
 
 This section includes examples to transfer between RDS and Pawsey via the `copy` partition. 
 
-<span style="color:DarkRed;">*To be completed*</span>
 
-## Transferring data into and out of Acacia object storage
-
-- https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide
-- https://pawsey.atlassian.net/wiki/spaces/US/pages/51924478/Copying+and+sharing+objects
-
-<span style="color:DarkRed;">*To be completed*</span>
