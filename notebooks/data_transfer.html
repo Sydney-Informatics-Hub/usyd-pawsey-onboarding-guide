@@ -372,14 +372,21 @@ cookieconsent.run({
   <li><a href="#sftp" id="toc-sftp" class="nav-link" data-scroll-target="#sftp"><code>sftp</code></a></li>
   <li><a href="#rsync" id="toc-rsync" class="nav-link" data-scroll-target="#rsync"><code>rsync</code></a></li>
   </ul></li>
-  <li><a href="#transferring-to-and-from-acacia-object-storage" id="toc-transferring-to-and-from-acacia-object-storage" class="nav-link" data-scroll-target="#transferring-to-and-from-acacia-object-storage">Transferring to and from Acacia object storage</a>
+  <li><a href="#transferring-to-and-from-acacia-storage-buckets" id="toc-transferring-to-and-from-acacia-storage-buckets" class="nav-link" data-scroll-target="#transferring-to-and-from-acacia-storage-buckets">Transferring to and from Acacia storage buckets</a>
   <ul class="collapse">
+  <li><a href="#what-is-acacia" id="toc-what-is-acacia" class="nav-link" data-scroll-target="#what-is-acacia">What is Acacia?</a></li>
+  <li><a href="#what-are-buckets" id="toc-what-are-buckets" class="nav-link" data-scroll-target="#what-are-buckets">What are buckets?</a></li>
+  <li><a href="#acacia-bucket-rules" id="toc-acacia-bucket-rules" class="nav-link" data-scroll-target="#acacia-bucket-rules">Acacia bucket rules</a></li>
+  <li><a href="#what-are-objects" id="toc-what-are-objects" class="nav-link" data-scroll-target="#what-are-objects">What are objects?</a></li>
   <li><a href="#create-access-keys" id="toc-create-access-keys" class="nav-link" data-scroll-target="#create-access-keys">Create access keys</a></li>
   <li><a href="#configure-rclone" id="toc-configure-rclone" class="nav-link" data-scroll-target="#configure-rclone">Configure Rclone</a></li>
-  <li><a href="#add-data-to-an-acacia-bucket" id="toc-add-data-to-an-acacia-bucket" class="nav-link" data-scroll-target="#add-data-to-an-acacia-bucket">Add data to an Acacia bucket</a></li>
+  <li><a href="#create-a-bucket" id="toc-create-a-bucket" class="nav-link" data-scroll-target="#create-a-bucket">Create a bucket</a></li>
+  <li><a href="#copy-data-from-scratch-to-acacia-bucket" id="toc-copy-data-from-scratch-to-acacia-bucket" class="nav-link" data-scroll-target="#copy-data-from-scratch-to-acacia-bucket">Copy data from scratch to Acacia bucket</a></li>
+  <li><a href="#copy-objects-from-acacia-bucket-to-scratch" id="toc-copy-objects-from-acacia-bucket-to-scratch" class="nav-link" data-scroll-target="#copy-objects-from-acacia-bucket-to-scratch">Copy objects from Acacia bucket to scratch</a></li>
   <li><a href="#list-acacia-contents" id="toc-list-acacia-contents" class="nav-link" data-scroll-target="#list-acacia-contents">List Acacia contents</a></li>
   <li><a href="#deleting-objects-and-buckets" id="toc-deleting-objects-and-buckets" class="nav-link" data-scroll-target="#deleting-objects-and-buckets">Deleting objects and buckets</a></li>
   <li><a href="#mount-your-acacia-bucket-locally" id="toc-mount-your-acacia-bucket-locally" class="nav-link" data-scroll-target="#mount-your-acacia-bucket-locally">Mount your Acacia bucket locally</a></li>
+  <li><a href="#share-contents-of-your-acacia-bucket-with-others" id="toc-share-contents-of-your-acacia-bucket-with-others" class="nav-link" data-scroll-target="#share-contents-of-your-acacia-bucket-with-others">Share contents of your Acacia bucket with others</a></li>
   </ul></li>
   <li><a href="#transferring-large-datasets-via-the-copy-partition" id="toc-transferring-large-datasets-via-the-copy-partition" class="nav-link" data-scroll-target="#transferring-large-datasets-via-the-copy-partition">Transferring large datasets via the copy partition</a>
   <ul class="collapse">
@@ -500,9 +507,34 @@ Note
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> <span class="at">-vhsrl</span> <span class="at">--chmod</span><span class="op">=</span>Dg+s <span class="at">-e</span> ssh <span class="op">&lt;</span>folder<span class="op">&gt;</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@data-mover.pawsey.org.au:/scratch/<span class="op">&lt;</span>pawsey-project-id<span class="op">&gt;</span>/<span class="op">&lt;</span>user<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="transferring-to-and-from-acacia-object-storage" class="level2">
-<h2 class="anchored" data-anchor-id="transferring-to-and-from-acacia-object-storage">Transferring to and from Acacia object storage</h2>
-<p>The quick-start instructions below are summarised from the <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide">Acacia user guide</a>.</p>
+<section id="transferring-to-and-from-acacia-storage-buckets" class="level2">
+<h2 class="anchored" data-anchor-id="transferring-to-and-from-acacia-storage-buckets">Transferring to and from Acacia storage buckets</h2>
+<section id="what-is-acacia" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-acacia">What is Acacia?</h3>
+<p>Acacia is Pawsey’s warm tier object storage cluster. It is a performant and highly scalable resource; but differs from traditional filesystems by arranging data as objects in a bucket, rather than files in a folder hierarchy. For detailed information, please refer to Pawsey’s full <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide">Acacia user guide</a>.</p>
+<p>Below is a quick-start summary of Pawsey’s user guide.</p>
+</section>
+<section id="what-are-buckets" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-buckets">What are buckets?</h3>
+<p>Buckets are a way of organising your data. Unlike directories/folders, they organise data as a ‘flat’ structure: there is no hierarchy, no sub-buckets etc. To simplify backing up data to a bucket and maintaining nested directory structures, the forward slashes within the filepaths of your data are preserved, and interpreted as ‘pseudo-folders’. In this way, your data within the bucket will appear with the same hierarchical organisation you are familiar with, yet the ‘folder’ does not actually exist as a separate object within the bucket.</p>
+</section>
+<section id="acacia-bucket-rules" class="level3">
+<h3 class="anchored" data-anchor-id="acacia-bucket-rules">Acacia bucket rules</h3>
+<ul>
+<li>Each user can have 1,000 buckets</li>
+<li>Buckets can have up to 1 million objects, however Pawsey recommends no more than 100,000 objects per bucket for optimal performance</li>
+<li>Bucket names must:
+<ul>
+<li>Be globally unique on Acacia</li>
+<li>Contain 3-63 characters comprising only numbers or lowercase letters. Full stops/periods (.) and hyphens (-) are allowed, but not at the beginning or end of bucket name</li>
+<li>Not include IP addresses, Pawsey usernames, or sensitive information</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-are-objects" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-objects">What are objects?</h3>
+<p>Once copied to your bucket, a file becomes an ‘object’. The object includes both the file and any metadata describing the file. Objects cannot be edited within the bucket, only stored. It can also not be read directly by the compute nodes on Setonix, so if you need to use Acacia objects as input data for a job, you will first need to copy them to Setonix <code>/scratch</code>.</p>
+</section>
 <section id="create-access-keys" class="level3">
 <h3 class="anchored" data-anchor-id="create-access-keys">Create access keys</h3>
 <p>Log in to the Pawsey <code>Origin</code> portal and follow the <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client#ConfiguringandrunninganS3client-Authenticating">instructions to create Acacia access keys</a>.</p>
@@ -526,32 +558,20 @@ Tip
 <p>Log on to Setonix and load the latest version of <code>rclone</code>. Note that Setonix does not allow modules to be loaded without specifying a version.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail rclone</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load rclone/<span class="op">&lt;</span>latest-version<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then follow the <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client#ConfiguringandrunninganS3client-Rclone">instructions to configure Rclone</a> via <code>tee</code> command or direct text editing of your <code>$HOME/.config/rclone/rclone.conf</code> file to add your private <code>Access ID</code> and <code>Secret Key</code> generated above.</p>
-<p>The simplest way is to copy paste the prompted command that you will receive from the Origin portal once you create your key pair. Each time you run the recommended <code>tee</code> command, it will append to the end of your <code>rclone.conf</code> file.</p>
+<p>Then follow the <a href="https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client#ConfiguringandrunninganS3client-Rclone">instructions to configure Rclone</a> file to add your private <code>Access ID</code> and <code>Secret Key</code> to your <code>$HOME/.config/rclone/rclone.conf</code>.</p>
+<p>All new key pairs that you generate will need to be added to your <code>rclone.conf</code> file. The simplest way is to copy the prompted command that you will receive from the Origin portal once you create your key pair, paste it into your terminal connect to Setonix login node, and run the command. Each time you run the recommended <code>tee</code> command, it will append to the end of your <code>rclone.conf</code> file.</p>
+<p>If you forget to run this command and have not otherwise saved the access ID and secret key, you can delete that key within the Origin portal and generate a new key.</p>
 </section>
-<section id="add-data-to-an-acacia-bucket" class="level3">
-<h3 class="anchored" data-anchor-id="add-data-to-an-acacia-bucket">Add data to an Acacia bucket</h3>
-<p><strong>What are buckets?</strong></p>
-<p>Buckets are a way of organising your data. Unlike directories/folders, they organise data as a ‘flat’ structure: there is no hierarchy, no sub-buckets etc. To simplify backing up data to a bucket and maintaining nested directory structures, the forward slashes within the filepaths of your data are preserved, and interpreted as ‘pseudo-folders’. In this way, your data within the bucket will appear with the same hierarchical organisation you are familair with, yet the ‘folder’ does not actually exist as a separate object within the bucket.</p>
-<p><strong>Bucket rules</strong></p>
-<ul>
-<li>Each user can have 1,000 buckets</li>
-<li>Buckets can have up to 1 million objects, however Pawsey recommends no more than 100,000 objects per bucket for optimal performance</li>
-<li>Bucket names must:
-<ul>
-<li>Be globally unique on Acacia</li>
-<li>Contain 3-63 characters comprising only numbers or lowercase letters. Full stops/periods (.) and hyphens (-) are allowed, but not at the beginning or end of bucket name</li>
-<li>Not include IP addresses, Pawsey usernames, or sensitive information</li>
-</ul></li>
-</ul>
-<p><strong>Create a bucket</strong></p>
+<section id="create-a-bucket" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-bucket">Create a bucket</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> mkdir <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In the above command, <code>profile-name</code> will be the name of a Pawsey project you are a member of, or your Pawsey username. The bucket name is a name of your choosing, following the naming rules described above.</p>
 <p>If you have not configured a key pair for the profile, you will receive an error:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">CRITICAL:</span> Failed to create file system for <span class="st">"&lt;profile&gt;:&lt;bucket-name&gt;"</span>: didn<span class="st">'t find section in config file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can resolve this by logging in to <a href="https://portal.pawsey.org.au/">Origin</a> and following Step 1 to make a key pair for the profile (will show as “Storage Name” dropdown menu on the Origin portal).</p>
-<p><strong>Add data to your bucket</strong></p>
-<p>Once copied to your bucket, a file becomes an ‘object’. It cannot be edited within the bucket, only stored. It can also not be read directly by the compute nodes on Setonix, so if you need to use Acacia objects as input data for a job, you will first need to copy them to Setonix <code>/scratch</code>.</p>
+</section>
+<section id="copy-data-from-scratch-to-acacia-bucket" class="level3">
+<h3 class="anchored" data-anchor-id="copy-data-from-scratch-to-acacia-bucket">Copy data from scratch to Acacia bucket</h3>
 <p>To copy a file from <code>/scratch</code> to your Acacia bucket:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> copy <span class="op">&lt;</span>file-on-scratch<span class="op">&gt;</span> <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can also add a pseudo-folder prefix to the bucket name if desired. For example to copy <code>results.csv</code> to a ‘Results’ pseudo-folder:</p>
@@ -564,26 +584,37 @@ Tip
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> copy New-results pawsey1234:experiment-001-2025/New-results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>All other nested sub-directories with <code>New-results</code> will appear organised as they are on <code>/scratch</code>, it is only the top-level directory path that must be explicitly described as the destination pseudo-folder.</p>
 </section>
+<section id="copy-objects-from-acacia-bucket-to-scratch" class="level3">
+<h3 class="anchored" data-anchor-id="copy-objects-from-acacia-bucket-to-scratch">Copy objects from Acacia bucket to scratch</h3>
+<p><span style="color:DarkRed;"><strong><em>To be completed</em></strong></span></p>
+<p>Copy a single object to <code>/scratch</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Copy all objects within a pseudo-folder to `/scratch/’</p>
+</section>
 <section id="list-acacia-contents" class="level3">
 <h3 class="anchored" data-anchor-id="list-acacia-contents">List Acacia contents</h3>
 <p>List contents of all buckets within a profile:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> tree <span class="op">&lt;</span>profile<span class="op">&gt;</span>:</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> tree <span class="op">&lt;</span>profile<span class="op">&gt;</span>:</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>List objects within a specific bucket:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> tree <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> tree <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="deleting-objects-and-buckets" class="level3">
 <h3 class="anchored" data-anchor-id="deleting-objects-and-buckets">Deleting objects and buckets</h3>
 <p>Delete an object:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> delete <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span>/<span class="op">&lt;</span>object<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> delete <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span>/<span class="op">&lt;</span>object<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Delete a pseudo-folder:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> delete <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span>/<span class="op">&lt;</span>pseudo-folder<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> delete <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span>/<span class="op">&lt;</span>pseudo-folder<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Delete all objects within a bucket:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> delete <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> delete <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Delete a bucket:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> rmdir <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> rmdir <span class="op">&lt;</span>profile<span class="op">&gt;</span>:<span class="op">&lt;</span>bucket-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="mount-your-acacia-bucket-locally" class="level3">
 <h3 class="anchored" data-anchor-id="mount-your-acacia-bucket-locally">Mount your Acacia bucket locally</h3>
+<p><span style="color:DarkRed;"><strong><em>To be completed</em></strong></span></p>
+</section>
+<section id="share-contents-of-your-acacia-bucket-with-others" class="level3">
+<h3 class="anchored" data-anchor-id="share-contents-of-your-acacia-bucket-with-others">Share contents of your Acacia bucket with others</h3>
 <p><span style="color:DarkRed;"><strong><em>To be completed</em></strong></span></p>
 </section>
 </section>
@@ -613,10 +644,11 @@ Tip
 <h3 class="anchored" data-anchor-id="slurm-data-transfer-script">SLURM data transfer script</h3>
 <p>Any of the command line examples shown above (<code>scp</code>, <code>sftp</code>, <code>rsync</code>) can be included within a SLURM job script to be submitted to the <code>copy</code> partition.</p>
 <p>Below is a script template for transferring a large dataset from Pawsey <code>/scratch</code> to USyd RDS:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="slurm-data-transfer-script---s3" class="level3">
 <h3 class="anchored" data-anchor-id="slurm-data-transfer-script---s3">SLURM data transfer script - S3</h3>
+<p><span style="color:DarkRed;"><strong><em>To be completed</em></strong></span></p>
 </section>
 </section>
 <section id="transferring-between-rds-and-pawsey" class="level2">
@@ -625,17 +657,18 @@ Tip
 <h3 class="anchored" data-anchor-id="small-datasets">Small datasets</h3>
 <p><strong>Copy a folder from Pawsey to RDS</strong></p>
 <p>USyd network or VPN not required.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sftp</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@research-data-ext.sydney.edu.au</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /rds/PRJ-<span class="op">&lt;</span>project<span class="op">&gt;</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="ex">put</span> <span class="at">-r</span> ./<span class="op">&lt;</span>folder<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sftp</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@research-data-ext.sydney.edu.au</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /rds/PRJ-<span class="op">&lt;</span>project<span class="op">&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ex">put</span> <span class="at">-r</span> ./<span class="op">&lt;</span>folder<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Copy a folder from RDS to Pawsey</strong></p>
 <p>Must be on USyd network or VPN on.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@research-data-int.sydney.edu.au</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /rds/PRJ-<span class="op">&lt;</span>project<span class="op">&gt;</span>/<span class="op">&lt;</span>data-location<span class="op">&gt;</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> <span class="at">-vhsrl</span> <span class="at">--chmod</span><span class="op">=</span>Dg+s <span class="at">-e</span> ssh <span class="op">&lt;</span>folder<span class="op">&gt;</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@data-mover.pawsey.org.au:/scratch/<span class="op">&lt;</span>pawsey-project-id<span class="op">&gt;</span>/<span class="op">&lt;</span>user<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@research-data-int.sydney.edu.au</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /rds/PRJ-<span class="op">&lt;</span>project<span class="op">&gt;</span>/<span class="op">&lt;</span>data-location<span class="op">&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> <span class="at">-vhsrl</span> <span class="at">--chmod</span><span class="op">=</span>Dg+s <span class="at">-e</span> ssh <span class="op">&lt;</span>folder<span class="op">&gt;</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@data-mover.pawsey.org.au:/scratch/<span class="op">&lt;</span>pawsey-project-id<span class="op">&gt;</span>/<span class="op">&lt;</span>user<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="large-datasets" class="level3">
 <h3 class="anchored" data-anchor-id="large-datasets">Large datasets</h3>
+<p><span style="color:DarkRed;"><strong><em>To be completed</em></strong></span></p>
 <p>This section includes examples to transfer between RDS and Pawsey via the <code>copy</code> partition.</p>
 
 
