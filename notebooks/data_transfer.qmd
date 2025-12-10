@@ -123,9 +123,31 @@ rsync -vhsrl --chmod=Dg+s -e ssh <folder> <user>@data-mover.pawsey.org.au:/scrat
 ```
 
 
-## Transferring to and from Acacia object storage
+## Transferring to and from Acacia storage buckets
 
-The quick-start instructions below are summarised from the [Acacia user guide](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide). 
+### What is Acacia?
+
+Acacia is Pawsey's warm tier object storage cluster. It is a performant and highly scalable resource; but differs from traditional filesystems by arranging data as objects in a bucket, rather than files in a folder hierarchy. For detailed information, please refer to Pawsey's full [Acacia user guide](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924986/Acacia+-+User+Guide).
+
+Below is a quick-start summary of Pawsey's user guide.  
+
+### What are buckets?
+
+Buckets are a way of organising your data. Unlike directories/folders, they organise data as a 'flat' structure: there is no hierarchy, no sub-buckets etc. To simplify backing up data to a bucket and maintaining nested directory structures, the forward slashes within the filepaths of your data are preserved, and interpreted as 'pseudo-folders'. In this way, your data within the bucket will appear with the same hierarchical organisation you are familiar with, yet the 'folder' does not actually exist as a separate object within the bucket. 
+
+### Acacia bucket rules
+
+- Each user can have 1,000 buckets
+- Buckets can have up to 1 million objects, however Pawsey recommends no more than 100,000 objects per bucket for optimal performance
+- Bucket names must:
+  - Be globally unique on Acacia
+  - Contain 3-63 characters comprising only numbers or lowercase letters. Full stops/periods (.) and hyphens (-) are allowed, but not at the beginning or end of bucket name
+  - Not include IP addresses, Pawsey usernames, or sensitive information 
+
+### What are objects?
+
+Once copied to your bucket, a file becomes an 'object'. The object includes both the file and any metadata describing the file. Objects cannot be edited within the bucket, only stored. It can also not be read directly by the compute nodes on Setonix, so if you need to use Acacia objects as input data for a job, you will first need to copy them to Setonix `/scratch`. 
+
 
 ### Create access keys
 
@@ -147,26 +169,15 @@ module avail rclone
 module load rclone/<latest-version>
 ```
 
-Then follow the [instructions to configure Rclone](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client#ConfiguringandrunninganS3client-Rclone) via `tee` command or direct text editing of your `$HOME/.config/rclone/rclone.conf` file to add your private `Access ID` and `Secret Key` generated above. 
+Then follow the [instructions to configure Rclone](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924486/Configuring+and+running+an+S3+client#ConfiguringandrunninganS3client-Rclone) file to add your private `Access ID` and `Secret Key` to your `$HOME/.config/rclone/rclone.conf`. 
 
-The simplest way is to copy paste the prompted command that you will receive from the Origin portal once you create your key pair. Each time you run the recommended `tee` command, it will append to the end of your `rclone.conf` file. 
+All new key pairs that you generate will need to be added to your `rclone.conf` file. The simplest way is to copy the prompted command that you will receive from the Origin portal once you create your key pair, paste it into your terminal connect to Setonix login node, and run the command. Each time you run the recommended `tee` command, it will append to the end of your `rclone.conf` file. 
 
-### Add data to an Acacia bucket
+If you forget to run this command and have not otherwise saved the access ID and secret key, you can delete that key within the Origin portal and generate a new key. 
 
-**What are buckets?**
+ 
 
-Buckets are a way of organising your data. Unlike directories/folders, they organise data as a 'flat' structure: there is no hierarchy, no sub-buckets etc. To simplify backing up data to a bucket and maintaining nested directory structures, the forward slashes within the filepaths of your data are preserved, and interpreted as 'pseudo-folders'. In this way, your data within the bucket will appear with the same hierarchical organisation you are familair with, yet the 'folder' does not actually exist as a separate object within the bucket. 
-
-**Bucket rules**
-
-- Each user can have 1,000 buckets
-- Buckets can have up to 1 million objects, however Pawsey recommends no more than 100,000 objects per bucket for optimal performance
-- Bucket names must:
-  - Be globally unique on Acacia
-  - Contain 3-63 characters comprising only numbers or lowercase letters. Full stops/periods (.) and hyphens (-) are allowed, but not at the beginning or end of bucket name
-  - Not include IP addresses, Pawsey usernames, or sensitive information  
-
-**Create a bucket**
+### Create a bucket
 
 ```bash
 rclone mkdir <profile>:<bucket-name>
@@ -182,10 +193,8 @@ CRITICAL: Failed to create file system for "<profile>:<bucket-name>": didn't fin
 You can resolve this by logging in to [Origin](https://portal.pawsey.org.au/) and following Step 1 to make a key pair for the profile (will show as "Storage Name" dropdown menu on the Origin portal). 
 
 
+### Copy data from scratch to Acacia bucket
 
-**Add data to your bucket**
-
-Once copied to your bucket, a file becomes an 'object'. It cannot be edited within the bucket, only stored. It can also not be read directly by the compute nodes on Setonix, so if you need to use Acacia objects as input data for a job, you will first need to copy them to Setonix `/scratch`. 
 
 To copy a file from `/scratch` to your Acacia bucket:
 
@@ -217,6 +226,19 @@ rclone copy New-results pawsey1234:experiment-001-2025/New-results
 ```
 
 All other nested sub-directories with `New-results` will appear organised as they are on `/scratch`, it is only the top-level directory path that must be explicitly described as the destination pseudo-folder. 
+
+### Copy objects from Acacia bucket to scratch
+
+<span style="color:DarkRed;">***To be completed***</span>
+
+Copy a single object to `/scratch`:
+
+```bash
+
+```
+
+Copy all objects within a pseudo-folder to `/scratch/'
+
 
 ### List Acacia contents
 
@@ -264,6 +286,10 @@ rclone rmdir <profile>:<bucket-name>
 <span style="color:DarkRed;">***To be completed***</span>
 
 
+### Share contents of your Acacia bucket with others
+
+<span style="color:DarkRed;">***To be completed***</span>
+
 
 
 ## Transferring large datasets via the copy partition
@@ -294,7 +320,7 @@ Below is a script template for transferring a large dataset from Pawsey `/scratc
 
 ### SLURM data transfer script - S3 
 
-
+<span style="color:DarkRed;">***To be completed***</span>
 
 
 
@@ -323,6 +349,8 @@ rsync -vhsrl --chmod=Dg+s -e ssh <folder> <user>@data-mover.pawsey.org.au:/scrat
 ```
 
 ### Large datasets
+
+<span style="color:DarkRed;">***To be completed***</span>
 
 This section includes examples to transfer between RDS and Pawsey via the `copy` partition. 
 
